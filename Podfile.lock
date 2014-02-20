@@ -3,14 +3,13 @@ PODS:
   - DoubanObjCClient (1.1.3):
     - AFNetworking (= 1.3.3)
     - DOUFoundation (~> 0.1)
-  - DOUBugReporter (1.1.3):
-    - AFNetworking (= 1.3.3)
   - DOUFoundation (0.1.3):
     - DOUFoundation/JSONKit
   - DOUFoundation/JSONKit (0.1.3)
   - DOUUserManager (1.0.1)
   - FLKAutoLayout (0.1.1)
   - iToast (0.0.1)
+  - JSONModel (0.11.0)
   - MBProgressHUD (0.8)
   - SDWebImage (3.5.2):
     - SDWebImage/Core
@@ -19,11 +18,11 @@ PODS:
 
 DEPENDENCIES:
   - DoubanObjCClient (~> 1.1.2)
-  - DOUBugReporter (~> 1.1.2)
   - DOUFoundation (~> 0.1.2)
   - DOUUserManager (~> 1.0.0)
   - FLKAutoLayout (~> 0.1.1)
   - iToast (~> 0.0.1)
+  - JSONModel (~> 0.11.0)
   - MBProgressHUD (~> 0.8)
   - SDWebImage (~> 3.5.0)
   - YAUIKit (~> 1.0.2)
@@ -31,11 +30,11 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 61fdd49e2ffe6380378df37b3b6e70630bb9dd66
   DoubanObjCClient: b4f9e4150a436695b3236db8f48574aec8805428
-  DOUBugReporter: dd5371206712b8d652b64f24ca64492bcb925ef1
   DOUFoundation: 080b43ad5c45afcb1b0bfc81511b5ecf37c3ad38
   DOUUserManager: ad47e5c830f369e3a1ec0e2a910b7587b8649b4e
   FLKAutoLayout: fc04b932009174d4118ef4bda9dc8fedf1369efc
   iToast: 610c7ae1a7de124186ff99db27622af534151a1b
+  JSONModel: a5f2eb85c46df008a67569447ec408d1040d4bf4
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   SDWebImage: fe7ce01ae4e0a884d168f59c9dd82d35baf8429e
   YAUIKit: 8d8ca5724e62c73002a6119d9581ec027bebab52

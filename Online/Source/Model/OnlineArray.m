@@ -6,8 +6,8 @@
 //  Copyright (c) 2014年 douban. All rights reserved.
 //
 
-#import "DOUOnlineArray.h"
+#import "OnlineArray.h"
 
-@implementation DOUOnlineArray
+@implementation OnlineArray
 
 @end
