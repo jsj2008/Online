@@ -34,4 +34,9 @@
                            succeeded:(void (^)(OnlineArray *onlineArray))succeeded
                               failed:(DOUAPIRequestFailErrorBlock)failed;
 
+- (void)getOnlineWithID:(int)onlineID
+              succeeded:(void (^)(Online *online))succeeded
+                 failed:(DOUAPIRequestFailErrorBlock)failed;
+
+
 @end

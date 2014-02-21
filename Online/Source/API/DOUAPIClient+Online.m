@@ -70,4 +70,25 @@
   [self getHotOnlinesByCast:@"latest" start:start count:count succeeded:succeeded failed:failed];
 }
 
+
+- (void)getOnlineWithID:(int)onlineID
+              succeeded:(void (^)(Online *online))succeeded
+                 failed:(DOUAPIRequestFailErrorBlock)failed
+{
+  NSParameterAssert(succeeded != NULL);
+  NSString *finalPath = [NSString stringWithFormat:@"v2/online/%d", onlineID];
+  
+  [self getPath:finalPath parameters:nil success:^(NSString *string) {
+    NSError* err = nil;
+    Online *online = [[Online alloc] initWithString:string error:&err];
+    if (succeeded && err == nil) {
+      succeeded(online);
+    }
+  } failure:^(DOUError *error) {
+    if (failed) {
+      failed(error);
+    }
+  }];
+}
+
 @end

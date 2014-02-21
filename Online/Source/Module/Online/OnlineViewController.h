@@ -8,7 +8,8 @@
 
 #import "BaseCollectionViewController.h"
 
-@interface OnlineViewController : UICollectionViewController
+@interface OnlineViewController : BaseCollectionViewController
 <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+
 
 @end

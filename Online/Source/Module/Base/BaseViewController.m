@@ -25,11 +25,14 @@
 - (UIView *)bodyView
 {
   if (!_bodyView) {
-    _bodyView = [[UIView alloc] init];
-    [_bodyView alignCenterXWithView:self.view predicate:nil];
-    [_bodyView constrainWidthToView:self.view predicate:nil];
-    [_bodyView constrainTopSpaceToView:self.view predicate:nil];
+    _bodyView = [[UIView alloc] initWithFrame:self.view.frame];
+    [_bodyView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [_bodyView alignCenterXWithView:self.view predicate:@"0"];
+    [_bodyView constrainWidthToView:self.view predicate:@"0"];
+    [_bodyView constrainTopSpaceToView:self.view predicate:@"0"];
     [_bodyView constrainHeightToView:self.view predicate:[NSString stringWithFormat:@"-%f", kFooterViewHeight]];
+    [_bodyView setNeedsLayout];
+    [_bodyView layoutIfNeeded];
   }
   return _bodyView;
 }

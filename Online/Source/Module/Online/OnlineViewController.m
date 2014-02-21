@@ -7,48 +7,66 @@
 //
 
 #import "OnlineViewController.h"
+#import "OnlineCell.h"
+
+@interface OnlineViewController ()
+{
+  NSMutableArray *_dataArray;
+}
+@end
 
 @implementation OnlineViewController
 
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-	
+  [self sendOnlineRequest];
+
+  UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
+  [layout setItemSize:CGSizeMake(self.view.frame.size.width, 200)];
+  [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
+  self.collectionView.collectionViewLayout = layout;
+  
+  self.collectionView.dataSource = self;
+  self.collectionView.delegate = self;
+  
+  
+  [self.collectionView registerClass:[OnlineCell class] forCellWithReuseIdentifier:@"OnlineCell"];
+  [self.collectionView setBackgroundColor:[UIColor blackColor]];
+  _dataArray = [NSMutableArray array];
 }
 
 - (void)sendOnlineRequest
 {
-  
+  [self.httpClient getDailyHotOnlinesWithStart:0 count:10 succeeded:^(OnlineArray *onlineArray) {
+    [_dataArray addObjectsFromArray:onlineArray.onlines];
+    [self.collectionView reloadData];
+  } failed:^(DOUError *error) {
+    NSLog(@"%@", error);
+  }];
 }
 
 #pragma mark - UICollectionView Data Source Methods
 // Default is one
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-	return 4;
+	return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-	return 10;
+	return _dataArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 {
-  return nil;
+  OnlineCell *onlineCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"OnlineCell" forIndexPath:indexPath];
+  if (!onlineCell) {
+    onlineCell = [[OnlineCell alloc] init];
+  }
+  Online *online = [_dataArray objectAtIndex:indexPath.row];
+  [onlineCell configureWithOnline:online];
+  return onlineCell;
 }
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-	//static int increase;
-	return CGSizeMake(180,100);// CGSizeMake(180-((increase%3)*10), 80+(increase*3));
-}
-
-#pragma mark - Gesture recognizers
-- (void)handlePinch:(UIPinchGestureRecognizer *)gestureRecognizer;
-{
-	
-}
-
 
 @end
