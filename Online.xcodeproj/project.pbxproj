@@ -22,6 +22,7 @@
 		C77E121418B6F9B400B87350 /* BaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C77E121318B6F9B400B87350 /* BaseCollectionViewController.m */; };
 		C77E121718B701AE00B87350 /* OnlineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C77E121618B701AE00B87350 /* OnlineCell.m */; };
 		C77E121F18B74B5400B87350 /* LessBoringFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C77E121E18B74B5400B87350 /* LessBoringFlowLayout.m */; };
+		C77E122218B7948300B87350 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = C77E122118B7948300B87350 /* UIColor+Hex.m */; };
 		C79CF32D18B5CE1900DAAA0F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79CF32C18B5CE1900DAAA0F /* Foundation.framework */; };
 		C79CF32F18B5CE1900DAAA0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79CF32E18B5CE1900DAAA0F /* CoreGraphics.framework */; };
 		C79CF33118B5CE1900DAAA0F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79CF33018B5CE1900DAAA0F /* UIKit.framework */; };
@@ -76,6 +77,8 @@
 		C77E121618B701AE00B87350 /* OnlineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OnlineCell.m; path = Source/View/OnlineCell.m; sourceTree = "<group>"; };
 		C77E121D18B74B5400B87350 /* LessBoringFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LessBoringFlowLayout.h; path = Source/View/Layout/LessBoringFlowLayout.h; sourceTree = "<group>"; };
 		C77E121E18B74B5400B87350 /* LessBoringFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LessBoringFlowLayout.m; path = Source/View/Layout/LessBoringFlowLayout.m; sourceTree = "<group>"; };
+		C77E122018B7948300B87350 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Hex.h"; path = "Source/View/Category/UIColor+Hex.h"; sourceTree = "<group>"; };
+		C77E122118B7948300B87350 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Hex.m"; path = "Source/View/Category/UIColor+Hex.m"; sourceTree = "<group>"; };
 		C79CF32918B5CE1900DAAA0F /* Online.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Online.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79CF32C18B5CE1900DAAA0F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C79CF32E18B5CE1900DAAA0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -226,6 +229,8 @@
 		C77E121918B7026700B87350 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				C77E122018B7948300B87350 /* UIColor+Hex.h */,
+				C77E122118B7948300B87350 /* UIColor+Hex.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -446,6 +451,7 @@
 				C77E121118B6F74000B87350 /* BaseViewController.m in Sources */,
 				C77E11EB18B5F9B200B87350 /* User.m in Sources */,
 				C75F1B8E18B5EDAE009CB662 /* AppDelegate.m in Sources */,
+				C77E122218B7948300B87350 /* UIColor+Hex.m in Sources */,
 				C79CF33918B5CE1900DAAA0F /* main.m in Sources */,
 				C77E11F818B6044600B87350 /* ImageSize.m in Sources */,
 				C77E121718B701AE00B87350 /* OnlineCell.m in Sources */,

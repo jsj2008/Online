@@ -9,6 +9,7 @@
 #import "OnlineCell.h"
 #import "UIImageView+WebCache.h"
 #import "UIView+FLKAutoLayout.h"
+#import "UIColor+Hex.h"
 
 @interface OnlineCell ()
 
@@ -24,14 +25,13 @@
 {
   self = [super initWithFrame:frame];
   if (self) {
-
     self.imageView = [[UIImageView alloc] init];
     [self.imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.contentView addSubview:self.imageView];
     
     self.titleLabel = [[UILabel alloc] init];
-    [self.titleLabel setBackgroundColor:[UIColor blackColor]];
-    [self.titleLabel setTextColor:[UIColor whiteColor]];
+    [self.titleLabel setBackgroundColor:[UIColor randomDarkColor]];
+    [self.titleLabel setTextColor:[UIColor randomThinColor]];
     [self.titleLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.contentView addSubview:self.titleLabel];
     
