@@ -8,10 +8,12 @@
 
 #import "OnlineViewController.h"
 #import "OnlineCell.h"
+#import "LessBoringFlowLayout.h"
 
 @interface OnlineViewController ()
 {
   NSMutableArray *_dataArray;
+  NSInteger _showingIndex;
 }
 @end
 
@@ -22,18 +24,22 @@
   [super viewDidLoad];
   [self sendOnlineRequest];
 
-  UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout;
-  [layout setItemSize:CGSizeMake(self.view.frame.size.width, 200)];
+  UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
+  
+  layout.minimumInteritemSpacing = 10.f;
+  layout.minimumLineSpacing = 10.f;
+  layout.itemSize = CGSizeMake(self.view.frame.size.width - 20, 200);
   [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
-  self.collectionView.collectionViewLayout = layout;
+  self.collectionView = [[UICollectionView alloc] initWithFrame:self.bodyView.frame collectionViewLayout:layout];
+  [self.bodyView addSubview:self.collectionView];
   
   self.collectionView.dataSource = self;
   self.collectionView.delegate = self;
   
-  
   [self.collectionView registerClass:[OnlineCell class] forCellWithReuseIdentifier:@"OnlineCell"];
   [self.collectionView setBackgroundColor:[UIColor blackColor]];
   _dataArray = [NSMutableArray array];
+  _showingIndex = 0;
 }
 
 - (void)sendOnlineRequest
@@ -67,6 +73,29 @@
   Online *online = [_dataArray objectAtIndex:indexPath.row];
   [onlineCell configureWithOnline:online];
   return onlineCell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+  if (indexPath.row == _showingIndex) {
+    return CGSizeMake(self.view.frame.size.width, 320);
+  } else {
+    return CGSizeMake(self.view.frame.size.width, 200);
+  }
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+  CGPoint point = scrollView.contentOffset;
+  point.y += 200;
+  NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:point];
+  if (indexPath.row != _showingIndex) {
+    _showingIndex = indexPath.row;
+
+    [self.collectionView performBatchUpdates:^{
+      [self.collectionView reloadData];
+    } completion:^(BOOL finished) {}];
+  }
 }
 
 @end

@@ -6,10 +6,11 @@
 //  Copyright (c) 2014年 douban. All rights reserved.
 //
 
-#import "BaseCollectionViewController.h"
+#import "BaseViewController.h"
 
-@interface OnlineViewController : BaseCollectionViewController
-<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface OnlineViewController : BaseViewController
+<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate>
 
+@property (nonatomic, strong) UICollectionView *collectionView;
 
 @end
