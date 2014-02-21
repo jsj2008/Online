@@ -7,7 +7,6 @@
 //
 
 #import "BaseCollectionViewController.h"
-#import "UIView+FLKAutoLayout.h"
 
 @implementation BaseCollectionViewController
 

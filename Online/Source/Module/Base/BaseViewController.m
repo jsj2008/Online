@@ -7,7 +7,6 @@
 //
 
 #import "BaseViewController.h"
-#import "UIView+FLKAutoLayout.h"
 #import "AppConstant.h"
 
 @implementation BaseViewController
@@ -25,14 +24,8 @@
 - (UIView *)bodyView
 {
   if (!_bodyView) {
-    _bodyView = [[UIView alloc] initWithFrame:self.view.frame];
-    [_bodyView setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [_bodyView alignCenterXWithView:self.view predicate:@"0"];
-    [_bodyView constrainWidthToView:self.view predicate:@"0"];
-    [_bodyView constrainTopSpaceToView:self.view predicate:@"0"];
-    [_bodyView constrainHeightToView:self.view predicate:[NSString stringWithFormat:@"-%f", kFooterViewHeight]];
-    [_bodyView setNeedsLayout];
-    [_bodyView layoutIfNeeded];
+    CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - kFooterViewHeight);
+    _bodyView = [[UIView alloc] initWithFrame:frame];
   }
   return _bodyView;
 }
