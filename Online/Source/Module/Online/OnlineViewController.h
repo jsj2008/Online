@@ -6,8 +6,9 @@
 //  Copyright (c) 2014年 douban. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "BaseCollectionViewController.h"
 
 @interface OnlineViewController : UICollectionViewController
+<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @end

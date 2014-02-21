@@ -10,4 +10,7 @@
 
 extern NSString *const kAppAPIKey;
 extern NSString *const kAppAPISecret;
-extern NSString *const kAppRedirectUrl;
+extern NSString *const kAppRedirectURL;
+extern NSString *const kAPIBaseURL;
+
+extern CGFloat const kFooterViewHeight;

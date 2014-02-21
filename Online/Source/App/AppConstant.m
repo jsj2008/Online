@@ -10,4 +10,7 @@
 
 NSString * const kAppAPIKey = @"0812985c41dc4e2f1837c914c594ea8d";
 NSString * const kAppAPISecret = @"cb07567d75011db9";
-NSString * const kAppRedirectUrl = @"http://www.douban.com/mobile/online";
+NSString * const kAppRedirectURL = @"http://www.douban.com/mobile/online";
+NSString *const kAPIBaseURL = @"https://api.douban.com/";
+
+CGFloat const kFooterViewHeight = 44;

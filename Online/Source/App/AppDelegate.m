@@ -57,7 +57,7 @@
 {
   [DOUAPIClient setAppDescriptionWithAppKey:kAppAPIKey
                                   appSecret:kAppAPISecret
-                             appRedirectURL:kAppRedirectUrl];
+                             appRedirectURL:kAppRedirectURL];
 }
 
 @end

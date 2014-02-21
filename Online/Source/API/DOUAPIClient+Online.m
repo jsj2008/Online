@@ -7,8 +7,17 @@
 //
 
 #import "DOUAPIClient+Online.h"
+#import "AppConstant.h"
 
 @implementation DOUAPIClient(Online)
+
++ (DOUAPIClient *)createHttpClient
+{
+  DOUAPIClient *client = [[DOUAPIClient alloc] initWithBaseURL:kAPIBaseURL];
+  [client setBodyParameterJSONEncodingEnabled:NO];
+  [DOUAPIClient setNetworkActivityIndicatorEnable:YES];
+  return client;
+}
 
 - (void)getHotOnlinesByCast:(NSString *)cast
                       start:(int)start

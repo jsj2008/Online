@@ -11,6 +11,8 @@
 
 @interface DOUAPIClient (Online)
 
++ (DOUAPIClient *)createHttpClient;
+
 - (void)getHotOnlinesByCast:(NSString *)cast
                       start:(int)start
                       count:(int)count

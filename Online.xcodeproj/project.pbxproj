@@ -18,6 +18,8 @@
 		C77E120518B6EDC200B87350 /* AppConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = C77E120418B6EDC200B87350 /* AppConstant.m */; };
 		C77E120818B6EEEC00B87350 /* OnlineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C77E120718B6EEEC00B87350 /* OnlineViewController.m */; };
 		C77E120B18B6F07300B87350 /* DOUAPIClient+Online.m in Sources */ = {isa = PBXBuildFile; fileRef = C77E120A18B6F07300B87350 /* DOUAPIClient+Online.m */; };
+		C77E121118B6F74000B87350 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C77E121018B6F74000B87350 /* BaseViewController.m */; };
+		C77E121418B6F9B400B87350 /* BaseCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C77E121318B6F9B400B87350 /* BaseCollectionViewController.m */; };
 		C79CF32D18B5CE1900DAAA0F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79CF32C18B5CE1900DAAA0F /* Foundation.framework */; };
 		C79CF32F18B5CE1900DAAA0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79CF32E18B5CE1900DAAA0F /* CoreGraphics.framework */; };
 		C79CF33118B5CE1900DAAA0F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C79CF33018B5CE1900DAAA0F /* UIKit.framework */; };
@@ -64,6 +66,10 @@
 		C77E120718B6EEEC00B87350 /* OnlineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OnlineViewController.m; path = Source/Module/Online/OnlineViewController.m; sourceTree = "<group>"; };
 		C77E120918B6F07300B87350 /* DOUAPIClient+Online.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DOUAPIClient+Online.h"; path = "Source/API/DOUAPIClient+Online.h"; sourceTree = "<group>"; };
 		C77E120A18B6F07300B87350 /* DOUAPIClient+Online.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DOUAPIClient+Online.m"; path = "Source/API/DOUAPIClient+Online.m"; sourceTree = "<group>"; };
+		C77E120F18B6F74000B87350 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseViewController.h; path = Source/Module/Base/BaseViewController.h; sourceTree = "<group>"; };
+		C77E121018B6F74000B87350 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseViewController.m; path = Source/Module/Base/BaseViewController.m; sourceTree = "<group>"; };
+		C77E121218B6F9B400B87350 /* BaseCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseCollectionViewController.h; path = Source/Module/Base/BaseCollectionViewController.h; sourceTree = "<group>"; };
+		C77E121318B6F9B400B87350 /* BaseCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseCollectionViewController.m; path = Source/Module/Base/BaseCollectionViewController.m; sourceTree = "<group>"; };
 		C79CF32918B5CE1900DAAA0F /* Online.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Online.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C79CF32C18B5CE1900DAAA0F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C79CF32E18B5CE1900DAAA0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -138,8 +144,8 @@
 		C75F1B8818B5ECAA009CB662 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				C77E120618B6EEEC00B87350 /* OnlineViewController.h */,
-				C77E120718B6EEEC00B87350 /* OnlineViewController.m */,
+				C77E120D18B6F72200B87350 /* Base */,
+				C77E120C18B6F71900B87350 /* Online */,
 			);
 			name = Module;
 			sourceTree = "<group>";
@@ -177,6 +183,26 @@
 				C77E120A18B6F07300B87350 /* DOUAPIClient+Online.m */,
 			);
 			name = API;
+			sourceTree = "<group>";
+		};
+		C77E120C18B6F71900B87350 /* Online */ = {
+			isa = PBXGroup;
+			children = (
+				C77E120618B6EEEC00B87350 /* OnlineViewController.h */,
+				C77E120718B6EEEC00B87350 /* OnlineViewController.m */,
+			);
+			name = Online;
+			sourceTree = "<group>";
+		};
+		C77E120D18B6F72200B87350 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				C77E120F18B6F74000B87350 /* BaseViewController.h */,
+				C77E121018B6F74000B87350 /* BaseViewController.m */,
+				C77E121218B6F9B400B87350 /* BaseCollectionViewController.h */,
+				C77E121318B6F9B400B87350 /* BaseCollectionViewController.m */,
+			);
+			name = Base;
 			sourceTree = "<group>";
 		};
 		C79CF32018B5CE1900DAAA0F = {
@@ -382,10 +408,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C75F1B9D18B5EECB009CB662 /* Photo.m in Sources */,
+				C77E121118B6F74000B87350 /* BaseViewController.m in Sources */,
 				C77E11EB18B5F9B200B87350 /* User.m in Sources */,
 				C75F1B8E18B5EDAE009CB662 /* AppDelegate.m in Sources */,
 				C79CF33918B5CE1900DAAA0F /* main.m in Sources */,
 				C77E11F818B6044600B87350 /* ImageSize.m in Sources */,
+				C77E121418B6F9B400B87350 /* BaseCollectionViewController.m in Sources */,
 				C77E120518B6EDC200B87350 /* AppConstant.m in Sources */,
 				C75F1B9418B5EE71009CB662 /* Online.m in Sources */,
 				C75F1B9A18B5EEB6009CB662 /* Album.m in Sources */,
