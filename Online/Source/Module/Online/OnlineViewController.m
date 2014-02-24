@@ -14,6 +14,7 @@
 {
   NSMutableArray *_dataArray;
   NSInteger _showingIndex;
+  NSString *_currentCate;
 }
 @end
 
@@ -22,7 +23,8 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  [self sendOnlineRequest];
+  _currentCate = @"day";
+  [self sendOnlineRequestWithCate:_currentCate];
 
   UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
   
@@ -42,11 +44,12 @@
   _showingIndex = 0;
 }
 
-- (void)sendOnlineRequest
+- (void)sendOnlineRequestWithCate:(NSString *)cate
 {
-  [self.httpClient getDailyHotOnlinesWithStart:0 count:10 succeeded:^(OnlineArray *onlineArray) {
-    [_dataArray addObjectsFromArray:onlineArray.onlines];
-    [self.collectionView reloadData];
+  __weak typeof(self) weakSelf = self;
+  [self.httpClient getHotOnlinesByCast:cate start:0 count:10 succeeded:^(OnlineArray *onlineArray) {
+    _dataArray = [NSMutableArray arrayWithArray:onlineArray.onlines];
+    [weakSelf.collectionView reloadData];
   } failed:^(DOUError *error) {
     NSLog(@"%@", error);
   }];
@@ -96,6 +99,35 @@
       [self.collectionView reloadData];
     } completion:^(BOOL finished) {}];
   }
+}
+
+- (void)selectMenuType:(MenuType)menuType
+{
+  NSString *cate = _currentCate;
+  switch (menuType) {
+    case kGuessYouLike:
+
+      break;
+    case kTodayHotOnline:
+      cate = @"day";
+      break;
+    case kLatestOnline:
+      cate = @"latest";
+      break;
+    case kWeekHotOnline:
+      cate = @"week";
+      break;
+    case kProfile:
+      
+      break;
+    default:
+      break;
+  }
+  if (![cate isEqualToString:_currentCate]) {
+    _currentCate = cate;
+    [self sendOnlineRequestWithCate:_currentCate];
+  }
+  [self changeMenuViewType:menuType];
 }
 
 @end

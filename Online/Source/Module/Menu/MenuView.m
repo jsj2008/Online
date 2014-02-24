@@ -43,7 +43,6 @@
     [self.imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self addSubview:self.imageView];
     
-    //[self.titleButton alignCenterXWithView:self];
     [self.titleButton alignCenterXWithView:self predicate:nil];
     [self.titleButton alignCenterYWithView:self predicate:nil];
     [self.imageView alignTop:@"5" leading:@"10" toView:self];

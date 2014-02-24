@@ -14,7 +14,6 @@
 
 @implementation MenuViewController
 
-
 - (void)viewDidLoad
 {
   [super viewDidLoad];
@@ -33,7 +32,6 @@
   self.tableView.delegate = self;
   [self.view addSubview:self.tableView];
 }
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -56,6 +54,13 @@
     [cell configureViewWithMenuType:indexPath.row];
   }
   return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  [self dismissViewControllerAnimated:YES completion:^{
+    [self.delegate selectMenuType:indexPath.row];
+  }];
 }
 
 @end

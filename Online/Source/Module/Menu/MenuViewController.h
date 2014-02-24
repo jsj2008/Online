@@ -6,10 +6,17 @@
 //  Copyright (c) 2014年 douban. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "MenuView.h"
 
-@interface MenuViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate>
+@protocol MenuSelectDelegate <NSObject>
+
+- (void)selectMenuType:(MenuType)menuType;
+
+@end
+
+@interface MenuViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, weak) id<MenuSelectDelegate> delegate;
 
 @end

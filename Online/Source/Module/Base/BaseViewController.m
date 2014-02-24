@@ -8,7 +8,6 @@
 
 #import "BaseViewController.h"
 #import "AppConstant.h"
-#import "MenuViewController.h"
 
 @implementation BaseViewController
 
@@ -37,16 +36,28 @@
   if (!_menuView) {
     CGRect frame = CGRectMake(0, self.view.frame.size.height - kMenuCellHeight, self.view.frame.size.width, kMenuCellHeight);
     _menuView = [[MenuView alloc] initWithFrame:frame];
-    [_menuView configureWithMenuType:kGuessYouLike];
     _menuView.delegate = self;
   }
   return _menuView;
 }
 
+- (void)changeMenuViewType:(MenuType)type
+{
+  [_menuView configureWithMenuType:type];
+}
+
 - (void)presentMenuViewController
 {
   MenuViewController *controller = [[MenuViewController alloc] init];
+  controller.delegate = self;
   [self presentViewController:controller animated:YES completion:NULL];
+}
+
+//TODO: move it away
+//implemented by subclass
+- (void)selectMenuType:(MenuType)menuType
+{
+  
 }
 
 - (void)viewDidLoad
@@ -54,6 +65,7 @@
   [super viewDidLoad];
   [self.view addSubview:self.bodyView];
   [self.view addSubview:self.menuView];
+  [self changeMenuViewType:kGuessYouLike];
 }
 
 @end
