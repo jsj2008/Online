@@ -13,4 +13,5 @@ extern NSString *const kAppAPISecret;
 extern NSString *const kAppRedirectURL;
 extern NSString *const kAPIBaseURL;
 
-extern CGFloat const kFooterViewHeight;
+extern CGFloat const kMenuCellHeight;
+extern NSInteger const kMenuListSize;

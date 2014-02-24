@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		4830BDC3509D42C3BA211F8E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68EE3FB5F41B4517B8CE0BE3 /* libPods.a */; };
+		C70BA28F18BB2889008265F6 /* checked_user-32.png in Resources */ = {isa = PBXBuildFile; fileRef = C70BA28A18BB2889008265F6 /* checked_user-32.png */; };
+		C70BA29018BB2889008265F6 /* likes-32.png in Resources */ = {isa = PBXBuildFile; fileRef = C70BA28B18BB2889008265F6 /* likes-32.png */; };
+		C70BA29118BB2889008265F6 /* menu-32.png in Resources */ = {isa = PBXBuildFile; fileRef = C70BA28C18BB2889008265F6 /* menu-32.png */; };
+		C70BA29218BB2889008265F6 /* today-32.png in Resources */ = {isa = PBXBuildFile; fileRef = C70BA28D18BB2889008265F6 /* today-32.png */; };
+		C70BA29318BB2889008265F6 /* week_view-32.png in Resources */ = {isa = PBXBuildFile; fileRef = C70BA28E18BB2889008265F6 /* week_view-32.png */; };
+		C70BA29C18BB291A008265F6 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C70BA29B18BB291A008265F6 /* MenuViewController.m */; };
+		C70BA29F18BB2A51008265F6 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C70BA29E18BB2A51008265F6 /* MenuCell.m */; };
+		C70BA2A218BB39E9008265F6 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = C70BA2A118BB39E9008265F6 /* MenuView.m */; };
 		C75F1B8E18B5EDAE009CB662 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B8D18B5EDAE009CB662 /* AppDelegate.m */; };
 		C75F1B9418B5EE71009CB662 /* Online.m in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B9318B5EE71009CB662 /* Online.m */; };
 		C75F1B9718B5EE83009CB662 /* OnlineArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B9618B5EE83009CB662 /* OnlineArray.m */; };
@@ -49,6 +57,18 @@
 /* Begin PBXFileReference section */
 		68EE3FB5F41B4517B8CE0BE3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B8533346D494D9C8DB3E191 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		C70BA28A18BB2889008265F6 /* checked_user-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "checked_user-32.png"; path = "Resource/images/checked_user-32.png"; sourceTree = "<group>"; };
+		C70BA28B18BB2889008265F6 /* likes-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "likes-32.png"; path = "Resource/images/likes-32.png"; sourceTree = "<group>"; };
+		C70BA28C18BB2889008265F6 /* menu-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "menu-32.png"; path = "Resource/images/menu-32.png"; sourceTree = "<group>"; };
+		C70BA28D18BB2889008265F6 /* today-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "today-32.png"; path = "Resource/images/today-32.png"; sourceTree = "<group>"; };
+		C70BA28E18BB2889008265F6 /* week_view-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "week_view-32.png"; path = "Resource/images/week_view-32.png"; sourceTree = "<group>"; };
+		C70BA29A18BB291A008265F6 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuViewController.h; path = Source/Module/Menu/MenuViewController.h; sourceTree = "<group>"; };
+		C70BA29B18BB291A008265F6 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuViewController.m; path = Source/Module/Menu/MenuViewController.m; sourceTree = "<group>"; };
+		C70BA29D18BB2A51008265F6 /* MenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuCell.h; path = Source/Module/Menu/MenuCell.h; sourceTree = "<group>"; };
+		C70BA29E18BB2A51008265F6 /* MenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuCell.m; path = Source/Module/Menu/MenuCell.m; sourceTree = "<group>"; };
+		C70BA2A018BB39E9008265F6 /* MenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuView.h; path = Source/Module/Menu/MenuView.h; sourceTree = "<group>"; };
+		C70BA2A118BB39E9008265F6 /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuView.m; path = Source/Module/Menu/MenuView.m; sourceTree = "<group>"; };
+		C70BA2A318BB4374008265F6 /* CommonMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonMacros.h; path = Source/App/CommonMacros.h; sourceTree = "<group>"; };
 		C75F1B8C18B5EDAE009CB662 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Source/App/AppDelegate.h; sourceTree = "<group>"; };
 		C75F1B8D18B5EDAE009CB662 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Source/App/AppDelegate.m; sourceTree = "<group>"; };
 		C75F1B9218B5EE71009CB662 /* Online.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Online.h; path = Source/Model/Online.h; sourceTree = "<group>"; };
@@ -120,6 +140,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C70BA28918BB287B008265F6 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				C70BA28A18BB2889008265F6 /* checked_user-32.png */,
+				C70BA28B18BB2889008265F6 /* likes-32.png */,
+				C70BA28C18BB2889008265F6 /* menu-32.png */,
+				C70BA28D18BB2889008265F6 /* today-32.png */,
+				C70BA28E18BB2889008265F6 /* week_view-32.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		C70BA29418BB28D4008265F6 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				C70BA29A18BB291A008265F6 /* MenuViewController.h */,
+				C70BA29B18BB291A008265F6 /* MenuViewController.m */,
+				C70BA29D18BB2A51008265F6 /* MenuCell.h */,
+				C70BA29E18BB2A51008265F6 /* MenuCell.m */,
+				C70BA2A018BB39E9008265F6 /* MenuView.h */,
+				C70BA2A118BB39E9008265F6 /* MenuView.m */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
 		C75F1B8518B5EC8E009CB662 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +180,7 @@
 		C75F1B8618B5EC95009CB662 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				C70BA28918BB287B008265F6 /* images */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -146,6 +192,7 @@
 				C75F1B8D18B5EDAE009CB662 /* AppDelegate.m */,
 				C77E120318B6EDC200B87350 /* AppConstant.h */,
 				C77E120418B6EDC200B87350 /* AppConstant.m */,
+				C70BA2A318BB4374008265F6 /* CommonMacros.h */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -153,6 +200,7 @@
 		C75F1B8818B5ECAA009CB662 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				C70BA29418BB28D4008265F6 /* Menu */,
 				C77E120D18B6F72200B87350 /* Base */,
 				C77E120C18B6F71900B87350 /* Online */,
 			);
@@ -164,7 +212,6 @@
 			children = (
 				C77E121C18B74B2A00B87350 /* Layout */,
 				C77E121918B7026700B87350 /* Category */,
-				C77E121818B701CA00B87350 /* Online */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -200,6 +247,8 @@
 		C77E120C18B6F71900B87350 /* Online */ = {
 			isa = PBXGroup;
 			children = (
+				C77E121518B701AE00B87350 /* OnlineCell.h */,
+				C77E121618B701AE00B87350 /* OnlineCell.m */,
 				C77E120618B6EEEC00B87350 /* OnlineViewController.h */,
 				C77E120718B6EEEC00B87350 /* OnlineViewController.m */,
 			);
@@ -215,15 +264,6 @@
 				C77E121318B6F9B400B87350 /* BaseCollectionViewController.m */,
 			);
 			name = Base;
-			sourceTree = "<group>";
-		};
-		C77E121818B701CA00B87350 /* Online */ = {
-			isa = PBXGroup;
-			children = (
-				C77E121518B701AE00B87350 /* OnlineCell.h */,
-				C77E121618B701AE00B87350 /* OnlineCell.m */,
-			);
-			name = Online;
 			sourceTree = "<group>";
 		};
 		C77E121918B7026700B87350 /* Category */ = {
@@ -393,8 +433,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C70BA29018BB2889008265F6 /* likes-32.png in Resources */,
 				C79CF33718B5CE1900DAAA0F /* InfoPlist.strings in Resources */,
+				C70BA28F18BB2889008265F6 /* checked_user-32.png in Resources */,
+				C70BA29318BB2889008265F6 /* week_view-32.png in Resources */,
 				C79CF33F18B5CE1900DAAA0F /* Images.xcassets in Resources */,
+				C70BA29218BB2889008265F6 /* today-32.png in Resources */,
+				C70BA29118BB2889008265F6 /* menu-32.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,6 +492,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C75F1B9D18B5EECB009CB662 /* Photo.m in Sources */,
+				C70BA29C18BB291A008265F6 /* MenuViewController.m in Sources */,
 				C77E121F18B74B5400B87350 /* LessBoringFlowLayout.m in Sources */,
 				C77E121118B6F74000B87350 /* BaseViewController.m in Sources */,
 				C77E11EB18B5F9B200B87350 /* User.m in Sources */,
@@ -459,9 +505,11 @@
 				C77E120518B6EDC200B87350 /* AppConstant.m in Sources */,
 				C75F1B9418B5EE71009CB662 /* Online.m in Sources */,
 				C75F1B9A18B5EEB6009CB662 /* Album.m in Sources */,
+				C70BA29F18BB2A51008265F6 /* MenuCell.m in Sources */,
 				C77E120B18B6F07300B87350 /* DOUAPIClient+Online.m in Sources */,
 				C75F1B9718B5EE83009CB662 /* OnlineArray.m in Sources */,
 				C77E120818B6EEEC00B87350 /* OnlineViewController.m in Sources */,
+				C70BA2A218BB39E9008265F6 /* MenuView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

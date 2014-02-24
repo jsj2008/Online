@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "DOUAPIClient+Online.h"
+#import "MenuView.h"
 
-
-@interface BaseViewController : UIViewController
+@interface BaseViewController : UIViewController<MenuViewDelegate>
 
 @property (nonatomic, strong) DOUAPIClient *httpClient;
 @property (nonatomic, strong) UIView *bodyView;
+@property (nonatomic, strong) MenuView *menuView;
 
 @end

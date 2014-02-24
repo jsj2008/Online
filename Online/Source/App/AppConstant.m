@@ -13,4 +13,5 @@ NSString * const kAppAPISecret = @"cb07567d75011db9";
 NSString * const kAppRedirectURL = @"http://www.douban.com/mobile/online";
 NSString *const kAPIBaseURL = @"https://api.douban.com/";
 
-CGFloat const kFooterViewHeight = 44;
+CGFloat const kMenuCellHeight = 44;
+NSInteger const kMenuListSize = 5;
