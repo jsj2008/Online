@@ -61,6 +61,7 @@
   [self dismissViewControllerAnimated:YES completion:^{
     [self.delegate selectMenuType:indexPath.row];
   }];
+  [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

@@ -165,6 +165,13 @@
 			name = Menu;
 			sourceTree = "<group>";
 		};
+		C70BA2B018BC3387008265F6 /* OnlineDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = OnlineDetail;
+			sourceTree = "<group>";
+		};
 		C75F1B8518B5EC8E009CB662 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +207,7 @@
 		C75F1B8818B5ECAA009CB662 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				C70BA2B018BC3387008265F6 /* OnlineDetail */,
 				C70BA29418BB28D4008265F6 /* Menu */,
 				C77E120D18B6F72200B87350 /* Base */,
 				C77E120C18B6F71900B87350 /* Online */,

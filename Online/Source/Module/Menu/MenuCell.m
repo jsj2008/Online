@@ -7,6 +7,7 @@
 //
 
 #import "MenuCell.h"
+#import "UIColor+Hex.h"
 
 @implementation MenuCell
 
@@ -16,6 +17,12 @@
   if (self) {
     self.menuView = [[MenuView alloc] initWithFrame:self.contentView.frame];
     [self.contentView addSubview:self.menuView];
+    
+    UIView *bgColorView = [[UIView alloc] init];
+    bgColorView.backgroundColor = [UIColor colorWithHex:0xFFFFFF alpha:0.05];
+    bgColorView.layer.cornerRadius = 7;
+    bgColorView.layer.masksToBounds = YES;
+    [self setSelectedBackgroundView:bgColorView];
   }
   return self;
 }
