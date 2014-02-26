@@ -50,7 +50,19 @@
 {
   MenuViewController *controller = [[MenuViewController alloc] init];
   controller.delegate = self;
-  [self presentViewController:controller animated:YES completion:NULL];
+  [self presentViewController:controller animated:YES completion:^{
+    //创建一个动画对象，指定位置属性作为键路径
+    CAKeyframeAnimation *animation=[CAKeyframeAnimation animationWithKeyPath:@"position"];
+    NSArray *values = [NSArray arrayWithObjects:
+                       [NSValue valueWithCGPoint:CGPointMake(160, 264)],
+                       [NSValue valueWithCGPoint:CGPointMake(160, 274)],
+                       [NSValue valueWithCGPoint:CGPointMake(160, 264)],nil];
+    [animation setValues:values];
+    [animation setDuration:0.3];
+    [animation setAutoreverses:YES];
+    // 为图层添加动画
+    [controller.view.layer addAnimation:animation forKey:nil];
+  }];
 }
 
 //TODO: move it away

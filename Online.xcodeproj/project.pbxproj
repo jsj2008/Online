@@ -20,6 +20,8 @@
 		C716E45F18BDD5ED0004BFBF /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = C716E45E18BDD5ED0004BFBF /* UIImage+Resize.m */; };
 		C716E46618BDD6CB0004BFBF /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C716E46518BDD6CB0004BFBF /* ImageHelper.m */; };
 		C716E46818BDD7690004BFBF /* ic_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = C716E46718BDD7690004BFBF /* ic_avatar.png */; };
+		C716E46A18BDDB0A0004BFBF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C716E46918BDDB0A0004BFBF /* SystemConfiguration.framework */; };
+		C716E46C18BDDB110004BFBF /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C716E46B18BDDB110004BFBF /* MobileCoreServices.framework */; };
 		C75F1B8E18B5EDAE009CB662 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B8D18B5EDAE009CB662 /* AppDelegate.m */; };
 		C75F1B9418B5EE71009CB662 /* Online.m in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B9318B5EE71009CB662 /* Online.m */; };
 		C75F1B9718B5EE83009CB662 /* OnlineArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B9618B5EE83009CB662 /* OnlineArray.m */; };
@@ -79,6 +81,8 @@
 		C716E46418BDD6CB0004BFBF /* ImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageHelper.h; path = Source/Util/ImageHelper.h; sourceTree = "<group>"; };
 		C716E46518BDD6CB0004BFBF /* ImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageHelper.m; path = Source/Util/ImageHelper.m; sourceTree = "<group>"; };
 		C716E46718BDD7690004BFBF /* ic_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_avatar.png; path = Resource/images/ic_avatar.png; sourceTree = "<group>"; };
+		C716E46918BDDB0A0004BFBF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C716E46B18BDDB110004BFBF /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		C75F1B8C18B5EDAE009CB662 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Source/App/AppDelegate.h; sourceTree = "<group>"; };
 		C75F1B8D18B5EDAE009CB662 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Source/App/AppDelegate.m; sourceTree = "<group>"; };
 		C75F1B9218B5EE71009CB662 /* Online.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Online.h; path = Source/Model/Online.h; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C716E46C18BDDB110004BFBF /* MobileCoreServices.framework in Frameworks */,
+				C716E46A18BDDB0A0004BFBF /* SystemConfiguration.framework in Frameworks */,
 				C79CF32F18B5CE1900DAAA0F /* CoreGraphics.framework in Frameworks */,
 				C79CF33118B5CE1900DAAA0F /* UIKit.framework in Frameworks */,
 				C79CF32D18B5CE1900DAAA0F /* Foundation.framework in Frameworks */,
@@ -339,6 +345,8 @@
 		C79CF32B18B5CE1900DAAA0F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C716E46B18BDDB110004BFBF /* MobileCoreServices.framework */,
+				C716E46918BDDB0A0004BFBF /* SystemConfiguration.framework */,
 				C79CF32C18B5CE1900DAAA0F /* Foundation.framework */,
 				C79CF32E18B5CE1900DAAA0F /* CoreGraphics.framework */,
 				C79CF33018B5CE1900DAAA0F /* UIKit.framework */,
