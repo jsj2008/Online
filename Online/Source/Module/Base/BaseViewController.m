@@ -51,16 +51,17 @@
   MenuViewController *controller = [[MenuViewController alloc] init];
   controller.delegate = self;
   [self presentViewController:controller animated:YES completion:^{
-    //创建一个动画对象，指定位置属性作为键路径
     CAKeyframeAnimation *animation=[CAKeyframeAnimation animationWithKeyPath:@"position"];
+    CGFloat middleX = ceilf(self.view.frame.size.width / 2);
+    CGFloat middleY = ceilf(self.view.frame.size.height / 2);
     NSArray *values = [NSArray arrayWithObjects:
-                       [NSValue valueWithCGPoint:CGPointMake(160, 264)],
-                       [NSValue valueWithCGPoint:CGPointMake(160, 274)],
-                       [NSValue valueWithCGPoint:CGPointMake(160, 264)],nil];
+                       [NSValue valueWithCGPoint:CGPointMake(middleX, middleY)],
+                       [NSValue valueWithCGPoint:CGPointMake(middleX, middleY - 10)],
+                       nil];
     [animation setValues:values];
-    [animation setDuration:0.3];
+    [animation setDuration:0.2];
     [animation setAutoreverses:YES];
-    // 为图层添加动画
+
     [controller.view.layer addAnimation:animation forKey:nil];
   }];
 }
