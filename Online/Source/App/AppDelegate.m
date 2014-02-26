@@ -21,7 +21,12 @@
   [self configureAPINeeds];
   
   OnlineViewController *controller = [[OnlineViewController alloc] init];
-  self.window.rootViewController = controller;
+  UINavigationController *navigator = [[UINavigationController alloc] initWithRootViewController:controller];
+  navigator.navigationBarHidden = YES;
+  navigator.automaticallyAdjustsScrollViewInsets = NO;
+  controller.automaticallyAdjustsScrollViewInsets = NO;
+
+  self.window.rootViewController = navigator;
   [self.window makeKeyAndVisible];
   return YES;
 }

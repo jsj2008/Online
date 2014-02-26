@@ -22,6 +22,8 @@
 		C716E46818BDD7690004BFBF /* ic_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = C716E46718BDD7690004BFBF /* ic_avatar.png */; };
 		C716E46A18BDDB0A0004BFBF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C716E46918BDDB0A0004BFBF /* SystemConfiguration.framework */; };
 		C716E46C18BDDB110004BFBF /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C716E46B18BDDB110004BFBF /* MobileCoreServices.framework */; };
+		C716E46F18BDF15A0004BFBF /* OnlineDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = C716E46E18BDF15A0004BFBF /* OnlineDetailController.m */; };
+		C716E47218BDF2120004BFBF /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C716E47118BDF2120004BFBF /* BaseTableViewController.m */; };
 		C75F1B8E18B5EDAE009CB662 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B8D18B5EDAE009CB662 /* AppDelegate.m */; };
 		C75F1B9418B5EE71009CB662 /* Online.m in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B9318B5EE71009CB662 /* Online.m */; };
 		C75F1B9718B5EE83009CB662 /* OnlineArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B9618B5EE83009CB662 /* OnlineArray.m */; };
@@ -83,6 +85,10 @@
 		C716E46718BDD7690004BFBF /* ic_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_avatar.png; path = Resource/images/ic_avatar.png; sourceTree = "<group>"; };
 		C716E46918BDDB0A0004BFBF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C716E46B18BDDB110004BFBF /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		C716E46D18BDF15A0004BFBF /* OnlineDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OnlineDetailController.h; path = Source/Module/OnlineDetail/OnlineDetailController.h; sourceTree = "<group>"; };
+		C716E46E18BDF15A0004BFBF /* OnlineDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OnlineDetailController.m; path = Source/Module/OnlineDetail/OnlineDetailController.m; sourceTree = "<group>"; };
+		C716E47018BDF2120004BFBF /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseTableViewController.h; path = Source/Module/Base/BaseTableViewController.h; sourceTree = "<group>"; };
+		C716E47118BDF2120004BFBF /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseTableViewController.m; path = Source/Module/Base/BaseTableViewController.m; sourceTree = "<group>"; };
 		C75F1B8C18B5EDAE009CB662 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Source/App/AppDelegate.h; sourceTree = "<group>"; };
 		C75F1B8D18B5EDAE009CB662 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Source/App/AppDelegate.m; sourceTree = "<group>"; };
 		C75F1B9218B5EE71009CB662 /* Online.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Online.h; path = Source/Model/Online.h; sourceTree = "<group>"; };
@@ -186,6 +192,8 @@
 		C70BA2B018BC3387008265F6 /* OnlineDetail */ = {
 			isa = PBXGroup;
 			children = (
+				C716E46D18BDF15A0004BFBF /* OnlineDetailController.h */,
+				C716E46E18BDF15A0004BFBF /* OnlineDetailController.m */,
 			);
 			name = OnlineDetail;
 			sourceTree = "<group>";
@@ -298,6 +306,8 @@
 				C77E121018B6F74000B87350 /* BaseViewController.m */,
 				C77E121218B6F9B400B87350 /* BaseCollectionViewController.h */,
 				C77E121318B6F9B400B87350 /* BaseCollectionViewController.m */,
+				C716E47018BDF2120004BFBF /* BaseTableViewController.h */,
+				C716E47118BDF2120004BFBF /* BaseTableViewController.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -538,6 +548,7 @@
 				C77E121F18B74B5400B87350 /* LessBoringFlowLayout.m in Sources */,
 				C77E121118B6F74000B87350 /* BaseViewController.m in Sources */,
 				C77E11EB18B5F9B200B87350 /* User.m in Sources */,
+				C716E46F18BDF15A0004BFBF /* OnlineDetailController.m in Sources */,
 				C75F1B8E18B5EDAE009CB662 /* AppDelegate.m in Sources */,
 				C77E122218B7948300B87350 /* UIColor+Hex.m in Sources */,
 				C79CF33918B5CE1900DAAA0F /* main.m in Sources */,
@@ -549,6 +560,7 @@
 				C75F1B9418B5EE71009CB662 /* Online.m in Sources */,
 				C75F1B9A18B5EEB6009CB662 /* Album.m in Sources */,
 				C70BA29F18BB2A51008265F6 /* MenuCell.m in Sources */,
+				C716E47218BDF2120004BFBF /* BaseTableViewController.m in Sources */,
 				C77E120B18B6F07300B87350 /* DOUAPIClient+Online.m in Sources */,
 				C75F1B9718B5EE83009CB662 /* OnlineArray.m in Sources */,
 				C716E46618BDD6CB0004BFBF /* ImageHelper.m in Sources */,

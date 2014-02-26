@@ -6,11 +6,10 @@
 //  Copyright (c) 2014年 douban. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "BaseTableViewController.h"
 
-@interface OnlineViewController : BaseViewController
+@interface OnlineViewController : BaseTableViewController
 <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) UITableView *tableView;
 
 @end

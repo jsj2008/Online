@@ -67,7 +67,7 @@
   [self.onlineImageView alignCenterXWithView:self.mainView predicate:@"0"];
   [self.onlineImageView alignCenterYWithView:self.mainView predicate:@"0"];
   [self.onlineImageView constrainHeightToView:self.mainView predicate:@"-10"];
-  [self.onlineImageView constrainWidthToView:self.mainView predicate:@"-20"];
+  [self.onlineImageView constrainWidthToView:self.mainView predicate:@"0"];
   
   [self.titleLabel constrainTopSpaceToView:self.mainView predicate:@"-50"];
   [self.titleLabel alignLeading:@"15" trailing:nil toView:self.mainView];
@@ -78,7 +78,7 @@
 {
   [ImageHelper scaleAndClipImageView:self.onlineImageView
                         withImageURL:online.image
-                    destionationSize:CGSizeMake(self.frame.size.width - 20, kOnlineCellHeight)];
+                    destionationSize:CGSizeMake(self.frame.size.width, kOnlineCellHeight)];
   [self.titleLabel setText:online.title];
 }
 
