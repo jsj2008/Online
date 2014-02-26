@@ -7,6 +7,7 @@
 //
 
 #import "OnlineDetailController.h"
+#import "OnlineDetailHeaderView.h"
 
 @interface OnlineDetailController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -32,6 +33,17 @@
   self.tableView.dataSource = self;
   self.tableView.delegate = self;
   self.tableView.rowHeight = 150;
+  
+  CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, 250);
+  
+  
+  NSArray* nibViews = [[NSBundle mainBundle] loadNibNamed:@"OnlineDetailHeaderView"
+                                                    owner:self
+                                                  options:nil];
+  
+  OnlineDetailHeaderView* headerView = [ nibViews objectAtIndex: 0];
+  [headerView setFrame:frame];
+  self.tableView.tableHeaderView = headerView;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

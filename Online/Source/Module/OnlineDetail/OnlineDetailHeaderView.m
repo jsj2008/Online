@@ -8,6 +8,26 @@
 
 #import "OnlineDetailHeaderView.h"
 
+@interface OnlineDetailHeaderView ()
+
+
+@end
+
 @implementation OnlineDetailHeaderView
+
+- (id)initWithFrame:(CGRect)frame
+{
+  self = [super initWithFrame:frame];
+  if (self) {
+    
+  }
+  return self;
+}
+
+- (void)configureWithOnline:(Online *)online
+{
+  
+}
+
 
 @end

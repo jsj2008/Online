@@ -26,6 +26,7 @@
 		C716E47218BDF2120004BFBF /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C716E47118BDF2120004BFBF /* BaseTableViewController.m */; };
 		C716E47518BDFE550004BFBF /* OnlineDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C716E47418BDFE550004BFBF /* OnlineDetailHeaderView.m */; };
 		C716E47818BDFEA10004BFBF /* OnlineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C716E47718BDFEA10004BFBF /* OnlineCell.m */; };
+		C716E47A18BE07170004BFBF /* OnlineDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C716E47918BE07170004BFBF /* OnlineDetailHeaderView.xib */; };
 		C75F1B8E18B5EDAE009CB662 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B8D18B5EDAE009CB662 /* AppDelegate.m */; };
 		C75F1B9418B5EE71009CB662 /* Online.m in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B9318B5EE71009CB662 /* Online.m */; };
 		C75F1B9718B5EE83009CB662 /* OnlineArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B9618B5EE83009CB662 /* OnlineArray.m */; };
@@ -94,6 +95,7 @@
 		C716E47418BDFE550004BFBF /* OnlineDetailHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OnlineDetailHeaderView.m; path = Source/Module/OnlineDetail/OnlineDetailHeaderView.m; sourceTree = "<group>"; };
 		C716E47618BDFEA10004BFBF /* OnlineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OnlineCell.h; path = Source/Module/Online/OnlineCell.h; sourceTree = "<group>"; };
 		C716E47718BDFEA10004BFBF /* OnlineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OnlineCell.m; path = Source/Module/Online/OnlineCell.m; sourceTree = "<group>"; };
+		C716E47918BE07170004BFBF /* OnlineDetailHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OnlineDetailHeaderView.xib; path = Source/Module/OnlineDetail/OnlineDetailHeaderView.xib; sourceTree = "<group>"; };
 		C75F1B8C18B5EDAE009CB662 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Source/App/AppDelegate.h; sourceTree = "<group>"; };
 		C75F1B8D18B5EDAE009CB662 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Source/App/AppDelegate.m; sourceTree = "<group>"; };
 		C75F1B9218B5EE71009CB662 /* Online.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Online.h; path = Source/Model/Online.h; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				C716E46E18BDF15A0004BFBF /* OnlineDetailController.m */,
 				C716E47318BDFE550004BFBF /* OnlineDetailHeaderView.h */,
 				C716E47418BDFE550004BFBF /* OnlineDetailHeaderView.m */,
+				C716E47918BE07170004BFBF /* OnlineDetailHeaderView.xib */,
 			);
 			name = OnlineDetail;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C70BA29018BB2889008265F6 /* likes-32.png in Resources */,
+				C716E47A18BE07170004BFBF /* OnlineDetailHeaderView.xib in Resources */,
 				C716E45C18BDCD3B0004BFBF /* background.png in Resources */,
 				C716E46818BDD7690004BFBF /* ic_avatar.png in Resources */,
 				C79CF33718B5CE1900DAAA0F /* InfoPlist.strings in Resources */,
