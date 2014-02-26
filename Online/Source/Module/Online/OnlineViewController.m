@@ -91,6 +91,7 @@
   Online *online = [self.dataArray objectAtIndex:indexPath.row];
   OnlineDetailController *controller = [[OnlineDetailController alloc] initWithOnline:online];
   [self.navigationController pushViewController:controller animated:YES];
+  [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)selectMenuType:(MenuType)menuType
