@@ -11,5 +11,6 @@
 @interface OnlineCell : UITableViewCell
 
 - (void)configureWithOnline:(Online *)online;
+@property (nonatomic, strong) UIView *mainView;
 
 @end

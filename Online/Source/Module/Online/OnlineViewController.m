@@ -14,9 +14,10 @@
 @interface OnlineViewController ()
 {
   NSMutableArray *_dataArray;
-  NSInteger _showingIndex;
   NSString *_currentCate;
 }
+@property (assign, nonatomic) CATransform3D initialTransformation;
+@property (nonatomic, strong) NSMutableSet *shownIndexes;
 @end
 
 @implementation OnlineViewController
@@ -25,7 +26,7 @@
 {
   [super viewDidLoad];
   _currentCate = @"day";
-  [self sendOnlineRequestWithCate:_currentCate];
+  [self sendOnlineRequestWithCate:_currentCate loadMore:NO];
 
   self.tableView = [[UITableView alloc] initWithFrame:self.bodyView.frame];
   [self.bodyView addSubview:self.tableView];
@@ -34,23 +35,43 @@
   self.tableView.delegate = self;
   
   [self.tableView setBackgroundColor:[UIColor colorWithHex:0x24282F alpha:1.0f]];
+  [self.tableView setHidden:YES];
   _dataArray = [NSMutableArray array];
-  _showingIndex = 0;
+  [self initAnimationRelated];
 }
 
-- (void)sendOnlineRequestWithCate:(NSString *)cate
+- (void)initAnimationRelated
+{
+  CGFloat rotationAngleDegrees = -15;
+  CGFloat rotationAngleRadians = rotationAngleDegrees * (M_PI/180);
+  CGPoint offsetPositioning = CGPointMake(-20, -20);
+  
+  CATransform3D transform = CATransform3DIdentity;
+  transform = CATransform3DRotate(transform, rotationAngleRadians, 0.0, 0.0, 1.0);
+  transform = CATransform3DTranslate(transform, offsetPositioning.x, offsetPositioning.y, 0.0);
+  _initialTransformation = transform;
+  
+  _shownIndexes = [NSMutableSet set];
+}
+
+- (void)sendOnlineRequestWithCate:(NSString *)cate loadMore:(BOOL)loadMore
 {
   __weak typeof(self) weakSelf = self;
   [self.httpClient getHotOnlinesByCast:cate start:0 count:10 succeeded:^(OnlineArray *onlineArray) {
-    _dataArray = [NSMutableArray arrayWithArray:onlineArray.onlines];
+    if (loadMore) {
+      [_dataArray addObjectsFromArray:onlineArray.onlines];
+    } else {
+      _dataArray = [NSMutableArray arrayWithArray:onlineArray.onlines];
+      _shownIndexes = [NSMutableSet set];
+    }
+    [weakSelf.tableView setHidden:NO];
     [weakSelf.tableView reloadData];
   } failed:^(DOUError *error) {
     NSLog(@"%@", error);
   }];
 }
 
-#pragma mark - UICollectionView Data Source Methods
-// Default is one
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 	return 1;
@@ -77,6 +98,24 @@
   return 200;
 }
 
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  if (![self.shownIndexes containsObject:indexPath]) {
+    [self.shownIndexes addObject:indexPath];
+    
+    UIView *card = [(OnlineCell* )cell mainView];
+    
+    card.layer.transform = self.initialTransformation;
+    card.layer.opacity = 0.8;
+    
+    [UIView animateWithDuration:0.4 animations:^{
+      card.layer.transform = CATransform3DIdentity;
+      card.layer.opacity = 1;
+    }];
+  }
+}
+
 - (void)selectMenuType:(MenuType)menuType
 {
   NSString *cate = _currentCate;
@@ -101,7 +140,7 @@
   }
   if (![cate isEqualToString:_currentCate]) {
     _currentCate = cate;
-    [self sendOnlineRequestWithCate:_currentCate];
+    [self sendOnlineRequestWithCate:_currentCate loadMore:NO];
   }
   [self changeMenuViewType:menuType];
 }

@@ -26,19 +26,24 @@
   self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
   if (self) {
     [self setBackgroundColor:[UIColor clearColor]];
+    
+    self.mainView = [[UIView alloc] init];
+    [self.mainView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.contentView addSubview:self.mainView];
+    
     self.onlineImageView = [[UIImageView alloc] init];
     [self.onlineImageView setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.contentView addSubview:self.onlineImageView];
+    [self.mainView addSubview:self.onlineImageView];
     
     self.titleLabel = [[UILabel alloc] init];
     [self.titleLabel setBackgroundColor:[UIColor randomDarkColor]];
     [self.titleLabel setTextColor:[UIColor randomThinColor]];
     [self.titleLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.contentView addSubview:self.titleLabel];
+    [self.mainView addSubview:self.titleLabel];
     
     self.descLabel = [[UILabel alloc] init];
     [self.descLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.contentView addSubview:self.descLabel];
+    [self.mainView addSubview:self.descLabel];
     
     UIView *bgColorView = [[UIView alloc] init];
     bgColorView.backgroundColor = [UIColor colorWithHex:0xFFFFFF alpha:0.05];
@@ -53,14 +58,19 @@
 {
   [super updateConstraints];
   
-  [self.onlineImageView alignCenterXWithView:self.contentView predicate:@"0"];
-  [self.onlineImageView alignCenterYWithView:self.contentView predicate:@"0"];
-  [self.onlineImageView constrainHeightToView:self.contentView predicate:@"-10"];
-  [self.onlineImageView constrainWidthToView:self.contentView predicate:@"-20"];
+  [self.mainView alignCenterXWithView:self.contentView predicate:@"0"];
+  [self.mainView alignCenterYWithView:self.contentView predicate:@"0"];
+  [self.mainView constrainHeightToView:self.contentView predicate:nil];
+  [self.mainView constrainWidthToView:self.contentView predicate:nil];
   
-  [self.titleLabel constrainTopSpaceToView:self.contentView predicate:@"-50"];
-  [self.titleLabel alignLeading:@"15" trailing:nil toView:self.contentView];
-  [self.titleLabel constrainWidthToView:self.contentView predicate:@"<=-20"];
+  [self.onlineImageView alignCenterXWithView:self.mainView predicate:@"0"];
+  [self.onlineImageView alignCenterYWithView:self.mainView predicate:@"0"];
+  [self.onlineImageView constrainHeightToView:self.mainView predicate:@"-10"];
+  [self.onlineImageView constrainWidthToView:self.mainView predicate:@"-20"];
+  
+  [self.titleLabel constrainTopSpaceToView:self.mainView predicate:@"-50"];
+  [self.titleLabel alignLeading:@"15" trailing:nil toView:self.mainView];
+  [self.titleLabel constrainWidthToView:self.mainView predicate:@"<=-20"];
 }
 
 - (void)configureWithOnline:(Online *)online
