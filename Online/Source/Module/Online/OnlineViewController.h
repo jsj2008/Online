@@ -9,8 +9,8 @@
 #import "BaseViewController.h"
 
 @interface OnlineViewController : BaseViewController
-<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate>
+<UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) UITableView *tableView;
 
 @end

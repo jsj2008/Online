@@ -13,7 +13,7 @@
 
 @interface OnlineCell ()
 
-@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UIImageView *onlineImageView;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *descLabel;
 
@@ -21,13 +21,14 @@
 
 @implementation OnlineCell
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
-  self = [super initWithFrame:frame];
+  self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
   if (self) {
-    self.imageView = [[UIImageView alloc] init];
-    [self.imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.contentView addSubview:self.imageView];
+    [self setBackgroundColor:[UIColor clearColor]];
+    self.onlineImageView = [[UIImageView alloc] init];
+    [self.onlineImageView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.contentView addSubview:self.onlineImageView];
     
     self.titleLabel = [[UILabel alloc] init];
     [self.titleLabel setBackgroundColor:[UIColor randomDarkColor]];
@@ -39,28 +40,33 @@
     [self.descLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.contentView addSubview:self.descLabel];
     
-    [self.imageView alignCenterXWithView:self.contentView predicate:@"0"];
-    [self.imageView alignCenterYWithView:self.contentView predicate:@"0"];
-    [self.imageView constrainHeightToView:self.contentView predicate:@"0"];
-    [self.imageView constrainWidthToView:self.contentView predicate:@"0"];
-    
-    [self.titleLabel constrainTopSpaceToView:self.contentView predicate:@"-50"];
-    [self.titleLabel alignLeading:@"5" trailing:nil toView:self.contentView];
-    [self.titleLabel constrainWidthToView:self.contentView predicate:@"<=-15"];
+    UIView *bgColorView = [[UIView alloc] init];
+    bgColorView.backgroundColor = [UIColor colorWithHex:0xFFFFFF alpha:0.05];
+    bgColorView.layer.cornerRadius = 7;
+    bgColorView.layer.masksToBounds = YES;
+    [self setSelectedBackgroundView:bgColorView];
   }
   return self;
 }
 
-- (void)configureWithOnline:(Online *)online
+- (void)updateConstraints
 {
-  [self.imageView setImageWithURL:[NSURL URLWithString:online.image]];
-  [self.titleLabel setText:online.title];
+  [super updateConstraints];
+  
+  [self.onlineImageView alignCenterXWithView:self.contentView predicate:@"0"];
+  [self.onlineImageView alignCenterYWithView:self.contentView predicate:@"0"];
+  [self.onlineImageView constrainHeightToView:self.contentView predicate:@"-10"];
+  [self.onlineImageView constrainWidthToView:self.contentView predicate:@"-20"];
+  
+  [self.titleLabel constrainTopSpaceToView:self.contentView predicate:@"-50"];
+  [self.titleLabel alignLeading:@"15" trailing:nil toView:self.contentView];
+  [self.titleLabel constrainWidthToView:self.contentView predicate:@"<=-20"];
 }
 
-- (void)prepareForReuse
+- (void)configureWithOnline:(Online *)online
 {
-  [super prepareForReuse];
-  [self setNeedsDisplay];
+  [self.onlineImageView setImageWithURL:[NSURL URLWithString:online.image]];
+  [self.titleLabel setText:online.title];
 }
 
 - (void)layoutSubviews

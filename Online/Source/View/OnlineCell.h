@@ -8,7 +8,7 @@
 
 #import "Online.h"
 
-@interface OnlineCell : UICollectionViewCell
+@interface OnlineCell : UITableViewCell
 
 - (void)configureWithOnline:(Online *)online;
 

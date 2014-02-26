@@ -9,6 +9,7 @@
 #import "OnlineViewController.h"
 #import "OnlineCell.h"
 #import "LessBoringFlowLayout.h"
+#import "UIColor+Hex.h"
 
 @interface OnlineViewController ()
 {
@@ -26,20 +27,13 @@
   _currentCate = @"day";
   [self sendOnlineRequestWithCate:_currentCate];
 
-  UICollectionViewFlowLayout *layout=[[UICollectionViewFlowLayout alloc] init];
+  self.tableView = [[UITableView alloc] initWithFrame:self.bodyView.frame];
+  [self.bodyView addSubview:self.tableView];
   
-  layout.minimumInteritemSpacing = 10.f;
-  layout.minimumLineSpacing = 10.f;
-  layout.itemSize = CGSizeMake(self.view.frame.size.width - 20, 200);
-  [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
-  self.collectionView = [[UICollectionView alloc] initWithFrame:self.bodyView.frame collectionViewLayout:layout];
-  [self.bodyView addSubview:self.collectionView];
+  self.tableView.dataSource = self;
+  self.tableView.delegate = self;
   
-  self.collectionView.dataSource = self;
-  self.collectionView.delegate = self;
-  
-  [self.collectionView registerClass:[OnlineCell class] forCellWithReuseIdentifier:@"OnlineCell"];
-  [self.collectionView setBackgroundColor:[UIColor blackColor]];
+  [self.tableView setBackgroundColor:[UIColor colorWithHex:0x24282F alpha:1.0f]];
   _dataArray = [NSMutableArray array];
   _showingIndex = 0;
 }
@@ -49,7 +43,7 @@
   __weak typeof(self) weakSelf = self;
   [self.httpClient getHotOnlinesByCast:cate start:0 count:10 succeeded:^(OnlineArray *onlineArray) {
     _dataArray = [NSMutableArray arrayWithArray:onlineArray.onlines];
-    [weakSelf.collectionView reloadData];
+    [weakSelf.tableView reloadData];
   } failed:^(DOUError *error) {
     NSLog(@"%@", error);
   }];
@@ -57,48 +51,30 @@
 
 #pragma mark - UICollectionView Data Source Methods
 // Default is one
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 	return 1;
 }
 
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 	return _dataArray.count;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  OnlineCell *onlineCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"OnlineCell" forIndexPath:indexPath];
+  OnlineCell *onlineCell = [tableView dequeueReusableCellWithIdentifier:@"OnlineCell"];
   if (!onlineCell) {
-    onlineCell = [[OnlineCell alloc] init];
+    onlineCell = [[OnlineCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"OnlineCell"];
   }
   Online *online = [_dataArray objectAtIndex:indexPath.row];
   [onlineCell configureWithOnline:online];
   return onlineCell;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  if (indexPath.row == _showingIndex) {
-    return CGSizeMake(self.view.frame.size.width, 320);
-  } else {
-    return CGSizeMake(self.view.frame.size.width, 200);
-  }
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-  CGPoint point = scrollView.contentOffset;
-  point.y += 200;
-  NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:point];
-  if (indexPath.row != _showingIndex) {
-    _showingIndex = indexPath.row;
-
-    [self.collectionView performBatchUpdates:^{
-      [self.collectionView reloadData];
-    } completion:^(BOOL finished) {}];
-  }
+  return 200;
 }
 
 - (void)selectMenuType:(MenuType)menuType
