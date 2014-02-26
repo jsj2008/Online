@@ -7,9 +7,10 @@
 //
 
 #import "OnlineCell.h"
-#import "UIImageView+WebCache.h"
 #import "UIView+FLKAutoLayout.h"
 #import "UIColor+Hex.h"
+#import "ImageHelper.h"
+#import "AppConstant.h"
 
 @interface OnlineCell ()
 
@@ -70,12 +71,14 @@
   
   [self.titleLabel constrainTopSpaceToView:self.mainView predicate:@"-50"];
   [self.titleLabel alignLeading:@"15" trailing:nil toView:self.mainView];
-  [self.titleLabel constrainWidthToView:self.mainView predicate:@"<=-20"];
+  [self.titleLabel constrainWidthToView:self.mainView predicate:@"<=-40"];
 }
 
 - (void)configureWithOnline:(Online *)online
 {
-  [self.onlineImageView setImageWithURL:[NSURL URLWithString:online.image]];
+  [ImageHelper scaleAndClipImageView:self.onlineImageView
+                        withImageURL:online.image
+                    destionationSize:CGSizeMake(self.frame.size.width - 20, kOnlineCellHeight)];
   [self.titleLabel setText:online.title];
 }
 

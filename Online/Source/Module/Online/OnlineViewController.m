@@ -10,14 +10,19 @@
 #import "OnlineCell.h"
 #import "LessBoringFlowLayout.h"
 #import "UIColor+Hex.h"
+#import "YAUIKit.h"
+#import "AppConstant.h"
 
 @interface OnlineViewController ()
 {
   NSMutableArray *_dataArray;
-  NSString *_currentCate;
 }
+@property (nonatomic, strong) NSString *currentCate;
 @property (assign, nonatomic) CATransform3D initialTransformation;
 @property (nonatomic, strong) NSMutableSet *shownIndexes;
+@property (nonatomic, strong) YARefreshControl *refreshControl;
+
+
 @end
 
 @implementation OnlineViewController
@@ -25,8 +30,8 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  _currentCate = @"day";
-  [self sendOnlineRequestWithCate:_currentCate loadMore:NO];
+  self.currentCate = @"day";
+  [self sendOnlineRequestWithCate:self.currentCate loadMore:NO];
 
   self.tableView = [[UITableView alloc] initWithFrame:self.bodyView.frame];
   [self.bodyView addSubview:self.tableView];
@@ -34,10 +39,11 @@
   self.tableView.dataSource = self;
   self.tableView.delegate = self;
   
-  [self.tableView setBackgroundColor:[UIColor colorWithHex:0x24282F alpha:1.0f]];
+  self.tableView.rowHeight = kOnlineCellHeight;
   [self.tableView setHidden:YES];
   _dataArray = [NSMutableArray array];
   [self initAnimationRelated];
+  [self initRefreshControlRelated];
 }
 
 - (void)initAnimationRelated
@@ -54,18 +60,30 @@
   _shownIndexes = [NSMutableSet set];
 }
 
+- (void)initRefreshControlRelated
+{
+  __weak typeof(self) weakSelf = self;
+  [self.refreshControl setCanRefreshDirection:kYARefreshableDirectionBottom];
+  [self.refreshControl setRefreshHandleAction:^(YARefreshDirection direction) {
+    [weakSelf sendOnlineRequestWithCate:weakSelf.currentCate loadMore:YES];
+  }];
+}
+
 - (void)sendOnlineRequestWithCate:(NSString *)cate loadMore:(BOOL)loadMore
 {
   __weak typeof(self) weakSelf = self;
-  [self.httpClient getHotOnlinesByCast:cate start:0 count:10 succeeded:^(OnlineArray *onlineArray) {
+  int start = loadMore ? _dataArray.count : 0;
+  [self.httpClient getHotOnlinesByCast:cate start:start count:10 succeeded:^(OnlineArray *onlineArray) {
     if (loadMore) {
       [_dataArray addObjectsFromArray:onlineArray.onlines];
+      [weakSelf.tableView reloadData];
     } else {
       _dataArray = [NSMutableArray arrayWithArray:onlineArray.onlines];
       _shownIndexes = [NSMutableSet set];
+      [weakSelf.tableView setHidden:NO];
+      [weakSelf.tableView reloadData];
+      [weakSelf.tableView setContentOffset:CGPointZero];
     }
-    [weakSelf.tableView setHidden:NO];
-    [weakSelf.tableView reloadData];
   } failed:^(DOUError *error) {
     NSLog(@"%@", error);
   }];
@@ -93,12 +111,6 @@
   return onlineCell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-  return 200;
-}
-
-
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
   if (![self.shownIndexes containsObject:indexPath]) {
@@ -118,7 +130,7 @@
 
 - (void)selectMenuType:(MenuType)menuType
 {
-  NSString *cate = _currentCate;
+  NSString *cate = self.currentCate;
   switch (menuType) {
     case kGuessYouLike:
 
@@ -138,11 +150,19 @@
     default:
       break;
   }
-  if (![cate isEqualToString:_currentCate]) {
-    _currentCate = cate;
-    [self sendOnlineRequestWithCate:_currentCate loadMore:NO];
+  if (![cate isEqualToString:self.currentCate]) {
+    self.currentCate = cate;
+    [self sendOnlineRequestWithCate:self.currentCate loadMore:NO];
   }
   [self changeMenuViewType:menuType];
+}
+
+- (YARefreshControl *)refreshControl
+{
+  if (!_refreshControl) {
+    _refreshControl = [[YARefreshControl alloc] initWithScrollView:self.tableView];
+  }
+  return _refreshControl;
 }
 
 @end

@@ -34,6 +34,7 @@
     [self setBackgroundColor:MENU_BGCOLOR];
     self.titleButton = [[UIButton alloc] init];
     [self.titleButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.titleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.titleButton addTarget:self
                          action:@selector(titlePressed)
                forControlEvents:UIControlEventTouchUpInside];

@@ -15,3 +15,5 @@ extern NSString *const kAPIBaseURL;
 
 extern CGFloat const kMenuCellHeight;
 extern NSInteger const kMenuListSize;
+
+extern CGFloat const kOnlineCellHeight;

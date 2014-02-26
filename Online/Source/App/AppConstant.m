@@ -15,3 +15,5 @@ NSString *const kAPIBaseURL = @"https://api.douban.com/";
 
 CGFloat const kMenuCellHeight = 44;
 NSInteger const kMenuListSize = 5;
+
+CGFloat const kOnlineCellHeight = 200;

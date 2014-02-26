@@ -17,6 +17,9 @@
 		C70BA29F18BB2A51008265F6 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C70BA29E18BB2A51008265F6 /* MenuCell.m */; };
 		C70BA2A218BB39E9008265F6 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = C70BA2A118BB39E9008265F6 /* MenuView.m */; };
 		C716E45C18BDCD3B0004BFBF /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = C716E45B18BDCD3B0004BFBF /* background.png */; };
+		C716E45F18BDD5ED0004BFBF /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = C716E45E18BDD5ED0004BFBF /* UIImage+Resize.m */; };
+		C716E46618BDD6CB0004BFBF /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C716E46518BDD6CB0004BFBF /* ImageHelper.m */; };
+		C716E46818BDD7690004BFBF /* ic_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = C716E46718BDD7690004BFBF /* ic_avatar.png */; };
 		C75F1B8E18B5EDAE009CB662 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B8D18B5EDAE009CB662 /* AppDelegate.m */; };
 		C75F1B9418B5EE71009CB662 /* Online.m in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B9318B5EE71009CB662 /* Online.m */; };
 		C75F1B9718B5EE83009CB662 /* OnlineArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B9618B5EE83009CB662 /* OnlineArray.m */; };
@@ -71,6 +74,11 @@
 		C70BA2A118BB39E9008265F6 /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuView.m; path = Source/Module/Menu/MenuView.m; sourceTree = "<group>"; };
 		C70BA2A318BB4374008265F6 /* CommonMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonMacros.h; path = Source/App/CommonMacros.h; sourceTree = "<group>"; };
 		C716E45B18BDCD3B0004BFBF /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = Resource/images/background.png; sourceTree = "<group>"; };
+		C716E45D18BDD5ED0004BFBF /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "Source/View/Category/UIImage+Resize.h"; sourceTree = "<group>"; };
+		C716E45E18BDD5ED0004BFBF /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "Source/View/Category/UIImage+Resize.m"; sourceTree = "<group>"; };
+		C716E46418BDD6CB0004BFBF /* ImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageHelper.h; path = Source/Util/ImageHelper.h; sourceTree = "<group>"; };
+		C716E46518BDD6CB0004BFBF /* ImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageHelper.m; path = Source/Util/ImageHelper.m; sourceTree = "<group>"; };
+		C716E46718BDD7690004BFBF /* ic_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_avatar.png; path = Resource/images/ic_avatar.png; sourceTree = "<group>"; };
 		C75F1B8C18B5EDAE009CB662 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Source/App/AppDelegate.h; sourceTree = "<group>"; };
 		C75F1B8D18B5EDAE009CB662 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Source/App/AppDelegate.m; sourceTree = "<group>"; };
 		C75F1B9218B5EE71009CB662 /* Online.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Online.h; path = Source/Model/Online.h; sourceTree = "<group>"; };
@@ -145,6 +153,7 @@
 		C70BA28918BB287B008265F6 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				C716E46718BDD7690004BFBF /* ic_avatar.png */,
 				C716E45B18BDCD3B0004BFBF /* background.png */,
 				C70BA28A18BB2889008265F6 /* checked_user-32.png */,
 				C70BA28B18BB2889008265F6 /* likes-32.png */,
@@ -175,9 +184,19 @@
 			name = OnlineDetail;
 			sourceTree = "<group>";
 		};
+		C716E46318BDD6AD0004BFBF /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				C716E46418BDD6CB0004BFBF /* ImageHelper.h */,
+				C716E46518BDD6CB0004BFBF /* ImageHelper.m */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
 		C75F1B8518B5EC8E009CB662 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C716E46318BDD6AD0004BFBF /* Util */,
 				C75F1B8B18B5ECC1009CB662 /* API */,
 				C75F1B8A18B5ECB6009CB662 /* Model */,
 				C75F1B8918B5ECAF009CB662 /* View */,
@@ -282,6 +301,8 @@
 			children = (
 				C77E122018B7948300B87350 /* UIColor+Hex.h */,
 				C77E122118B7948300B87350 /* UIColor+Hex.m */,
+				C716E45D18BDD5ED0004BFBF /* UIImage+Resize.h */,
+				C716E45E18BDD5ED0004BFBF /* UIImage+Resize.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -446,6 +467,7 @@
 			files = (
 				C70BA29018BB2889008265F6 /* likes-32.png in Resources */,
 				C716E45C18BDCD3B0004BFBF /* background.png in Resources */,
+				C716E46818BDD7690004BFBF /* ic_avatar.png in Resources */,
 				C79CF33718B5CE1900DAAA0F /* InfoPlist.strings in Resources */,
 				C70BA28F18BB2889008265F6 /* checked_user-32.png in Resources */,
 				C70BA29318BB2889008265F6 /* week_view-32.png in Resources */,
@@ -512,6 +534,7 @@
 				C77E122218B7948300B87350 /* UIColor+Hex.m in Sources */,
 				C79CF33918B5CE1900DAAA0F /* main.m in Sources */,
 				C77E11F818B6044600B87350 /* ImageSize.m in Sources */,
+				C716E45F18BDD5ED0004BFBF /* UIImage+Resize.m in Sources */,
 				C77E121718B701AE00B87350 /* OnlineCell.m in Sources */,
 				C77E121418B6F9B400B87350 /* BaseCollectionViewController.m in Sources */,
 				C77E120518B6EDC200B87350 /* AppConstant.m in Sources */,
@@ -520,6 +543,7 @@
 				C70BA29F18BB2A51008265F6 /* MenuCell.m in Sources */,
 				C77E120B18B6F07300B87350 /* DOUAPIClient+Online.m in Sources */,
 				C75F1B9718B5EE83009CB662 /* OnlineArray.m in Sources */,
+				C716E46618BDD6CB0004BFBF /* ImageHelper.m in Sources */,
 				C77E120818B6EEEC00B87350 /* OnlineViewController.m in Sources */,
 				C70BA2A218BB39E9008265F6 /* MenuView.m in Sources */,
 			);
