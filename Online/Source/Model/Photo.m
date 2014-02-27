@@ -29,7 +29,7 @@
             @"privacy": @"created",
             @"cover": @"cover",
             @"large": @"large",
-            @"like_count": @"likeCount",
+            @"liked_count": @"likeCount",
             @"comments_count": @"commentsCount",
             @"desc": @"desc",
             @"next_photo": @"nextPhoto"

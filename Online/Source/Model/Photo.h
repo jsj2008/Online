@@ -10,6 +10,9 @@
 #import "User.h"
 #import "ImageSize.h"
 
+@protocol Photo
+@end
+
 @interface Photo : JSONModel
 
 @property (nonatomic, strong) User *author;

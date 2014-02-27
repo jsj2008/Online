@@ -31,7 +31,7 @@
             @"cover": @"cover",
             @"photo_order": @"photoOrder",
             @"title": @"title",
-            @"like_count": @"likeCount",
+            @"liked_count": @"likeCount",
             @"desc": @"desc",
             }];
 }

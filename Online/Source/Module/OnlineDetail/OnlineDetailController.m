@@ -8,6 +8,7 @@
 
 #import "OnlineDetailController.h"
 #import "OnlineDetailHeaderView.h"
+#import "UIImageView+WebCache.h"
 
 @interface OnlineDetailController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -36,12 +37,14 @@
   self.tableView.rowHeight = 150;
   
   self.tableView.tableHeaderView = self.headerView;
+  
+  [self sendPhotosRequest];
 }
 
 - (OnlineDetailHeaderView *)headerView
 {
   if (!_headerView) {
-    CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, 214);
+    CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, 284);
     NSArray* nibViews = [[NSBundle mainBundle] loadNibNamed:@"OnlineDetailHeaderView"
                                                       owner:self
                                                     options:nil];
@@ -53,6 +56,18 @@
   return _headerView;
 }
 
+- (void)sendPhotosRequest
+{
+  __weak typeof(self) weakSelf = self;
+  [self.httpClient getPhotosOfAlbumID:self.online.albumID
+                                start:self.dataArray.count
+                                count:10
+                            succeeded:^(PhotoArray *photoArray) {
+                              [weakSelf.dataArray addObjectsFromArray:photoArray.photos];
+                              [weakSelf.tableView reloadData];
+                            } failed:NULL];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 	return 1;
@@ -60,13 +75,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return 3;
+	return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"no"];
-  [cell.imageView setImage:[UIImage imageNamed:@"background"]];
+  Photo *photo = [self.dataArray objectAtIndex:indexPath.row];
+  [cell.imageView setImageWithURL:[NSURL URLWithString:photo.image]];
   return cell;
 }
 

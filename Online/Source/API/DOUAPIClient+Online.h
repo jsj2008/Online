@@ -8,6 +8,7 @@
 
 #import "DOUAPIClient.h"
 #import "OnlineArray.h"
+#import "PhotoArray.h"
 
 @interface DOUAPIClient (Online)
 
@@ -38,5 +39,11 @@
               succeeded:(void (^)(Online *online))succeeded
                  failed:(DOUAPIRequestFailErrorBlock)failed;
 
+
+- (void)getPhotosOfAlbumID:(NSString *)albumID
+                     start:(int)start
+                     count:(int)count
+                 succeeded:(void (^)(PhotoArray *photoArray))succeeded
+                    failed:(DOUAPIRequestFailErrorBlock)failed;
 
 @end
