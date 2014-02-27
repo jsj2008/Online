@@ -9,6 +9,7 @@
 #import "ImageHelper.h"
 #import "UIImageView+WebCache.h"
 #import "UIImage+Resize.h"
+#import "UIColor+Hex.h"
 
 @implementation ImageHelper
 
@@ -87,6 +88,48 @@
                  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
                    UIImage *scaledImage = [image fixedHeightScaleAndClipToFillSize:CGSizeMake(showWidth, showHeight)];
                    [imageView setImage:scaledImage];
+                   [[SDImageCache sharedImageCache] storeImage:scaledImage forKey:cachedKey];
+                 }];
+}
+
++ (void)colorImageView:(UIImageView *)imageView
+          withImageURL:(NSString *)imageURL
+      destionationSize:(CGSize)destSize
+{
+  NSString *cachedKey = [NSString stringWithFormat:@"%@%@%@",
+                         @"ScaleColor", NSStringFromCGSize(destSize), imageURL];
+  [ImageHelper colorImageView:imageView
+                 withImageURL:imageURL
+             destionationSize:destSize
+                    cachedKey:cachedKey];
+  
+  /*
+  NSString *cachedKey = [NSString stringWithFormat:@"%@%@%@",
+                         @"ScaleColor", NSStringFromCGSize(destSize), imageURL];
+  [ImageHelper setImageView:imageView
+              withCachedKey:cachedKey
+              downloadBlock:^{
+                [ImageHelper colorImageView:imageView
+                               withImageURL:imageURL
+                           destionationSize:destSize
+                                  cachedKey:cachedKey];
+              }];*/
+}
+
++ (void)colorImageView:(UIImageView *)imageView
+          withImageURL:(NSString *)imageURL
+      destionationSize:(CGSize)destSize
+             cachedKey:(NSString *)cachedKey
+
+{
+  SDWebImageManager *manager = [SDWebImageManager sharedManager];
+  [manager downloadWithURL:[NSURL URLWithString:imageURL]
+                   options:0
+                  progress:NULL
+                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
+                   UIImage *scaledImage = [image fixedWidthScaleAndClipToFillSize:destSize];
+                   UIImage *colorImage = [scaledImage colorImage:[UIColor colorWithHex:0x888888 alpha:0.85f]];
+                   [imageView setImage:colorImage];
                    [[SDImageCache sharedImageCache] storeImage:scaledImage forKey:cachedKey];
                  }];
 }

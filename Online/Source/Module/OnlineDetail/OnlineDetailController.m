@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @property (nonatomic, strong) Online *online;
+@property (nonatomic, strong) OnlineDetailHeaderView *headerView;
 
 @end
 
@@ -34,16 +35,22 @@
   self.tableView.delegate = self;
   self.tableView.rowHeight = 150;
   
-  CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, 250);
-  
-  
-  NSArray* nibViews = [[NSBundle mainBundle] loadNibNamed:@"OnlineDetailHeaderView"
-                                                    owner:self
-                                                  options:nil];
-  
-  OnlineDetailHeaderView* headerView = [ nibViews objectAtIndex: 0];
-  [headerView setFrame:frame];
-  self.tableView.tableHeaderView = headerView;
+  self.tableView.tableHeaderView = self.headerView;
+}
+
+- (OnlineDetailHeaderView *)headerView
+{
+  if (!_headerView) {
+    CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, 284);
+    NSArray* nibViews = [[NSBundle mainBundle] loadNibNamed:@"OnlineDetailHeaderView"
+                                                      owner:self
+                                                    options:nil];
+    
+    _headerView = [nibViews objectAtIndex: 0];
+    [_headerView configureWithOnline:self.online];
+    [_headerView setFrame:frame];
+  }
+  return _headerView;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
