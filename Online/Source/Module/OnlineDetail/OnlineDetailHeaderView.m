@@ -40,6 +40,10 @@
                         [NSDate dateStringOnlineStyleString:online.beginTime],
                         [NSDate dateStringOnlineStyleString:online.endTime]];
   [self.timeLabel setText:timeText];
+  
+  [self.participateLabel setText:[NSString stringWithFormat:@"%d人参加", online.participantCount]];
+  [self.likeLabel setText:[NSString stringWithFormat:@"%d人喜欢", online.likeCount]];
+  [self.photoLabel setText:[NSString stringWithFormat:@"%d张图片", online.photoCount]];
 }
 
 

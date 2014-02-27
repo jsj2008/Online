@@ -41,7 +41,7 @@
 - (OnlineDetailHeaderView *)headerView
 {
   if (!_headerView) {
-    CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, 284);
+    CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, 214);
     NSArray* nibViews = [[NSBundle mainBundle] loadNibNamed:@"OnlineDetailHeaderView"
                                                       owner:self
                                                     options:nil];
