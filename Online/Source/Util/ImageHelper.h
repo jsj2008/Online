@@ -46,6 +46,7 @@
                         showHeight:(CGFloat)showHeight;
 
 + (void)colorImageView:(UIImageView *)imageView
+                 color:(UIColor *)color
           withImageURL:(NSString *)imageURL
       destionationSize:(CGSize)destSize;
 

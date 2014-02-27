@@ -42,6 +42,7 @@
   [self.refreshControl setCanRefreshDirection:kYARefreshableDirectionBottom];
   [self.refreshControl setRefreshHandleAction:^(YARefreshDirection direction) {
     [weakSelf sendOnlineRequestWithCate:weakSelf.currentCate loadMore:YES];
+    [weakSelf.refreshControl stopRefreshAtDirection:kYARefreshDirectionBottom animated:YES completion:nil];
   }];
 }
 

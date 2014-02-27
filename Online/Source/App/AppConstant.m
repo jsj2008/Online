@@ -17,3 +17,5 @@ CGFloat const kMenuCellHeight = 44;
 NSInteger const kMenuListSize = 5;
 
 CGFloat const kOnlineCellHeight = 200;
+
+CGFloat const kAvatarSize = 32;

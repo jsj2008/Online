@@ -9,7 +9,6 @@
 #import "ImageHelper.h"
 #import "UIImageView+WebCache.h"
 #import "UIImage+Resize.h"
-#import "UIColor+Hex.h"
 
 @implementation ImageHelper
 
@@ -93,30 +92,25 @@
 }
 
 + (void)colorImageView:(UIImageView *)imageView
+                 color:(UIColor *)color
           withImageURL:(NSString *)imageURL
       destionationSize:(CGSize)destSize
 {
-  NSString *cachedKey = [NSString stringWithFormat:@"%@%@%@",
-                         @"ScaleColor", NSStringFromCGSize(destSize), imageURL];
-  [ImageHelper colorImageView:imageView
-                 withImageURL:imageURL
-             destionationSize:destSize
-                    cachedKey:cachedKey];
-  
-  /*
   NSString *cachedKey = [NSString stringWithFormat:@"%@%@%@",
                          @"ScaleColor", NSStringFromCGSize(destSize), imageURL];
   [ImageHelper setImageView:imageView
               withCachedKey:cachedKey
               downloadBlock:^{
                 [ImageHelper colorImageView:imageView
+                                      color:(UIColor *)color
                                withImageURL:imageURL
                            destionationSize:destSize
                                   cachedKey:cachedKey];
-              }];*/
+              }];
 }
 
 + (void)colorImageView:(UIImageView *)imageView
+                 color:(UIColor *)color
           withImageURL:(NSString *)imageURL
       destionationSize:(CGSize)destSize
              cachedKey:(NSString *)cachedKey
@@ -128,7 +122,7 @@
                   progress:NULL
                  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished) {
                    UIImage *scaledImage = [image fixedWidthScaleAndClipToFillSize:destSize];
-                   UIImage *colorImage = [scaledImage colorImage:[UIColor colorWithHex:0x888888 alpha:0.85f]];
+                   UIImage *colorImage = [scaledImage colorImage:color];
                    [imageView setImage:colorImage];
                    [[SDImageCache sharedImageCache] storeImage:scaledImage forKey:cachedKey];
                  }];

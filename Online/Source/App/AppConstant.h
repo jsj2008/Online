@@ -17,3 +17,4 @@ extern CGFloat const kMenuCellHeight;
 extern NSInteger const kMenuListSize;
 
 extern CGFloat const kOnlineCellHeight;
+extern CGFloat const kAvatarSize;

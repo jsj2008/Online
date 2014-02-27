@@ -9,6 +9,7 @@
 #import "OnlineDetailController.h"
 #import "OnlineDetailHeaderView.h"
 #import "UIImageView+WebCache.h"
+#import "OnlineDetailCell.h"
 
 @interface OnlineDetailController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -38,7 +39,19 @@
   
   self.tableView.tableHeaderView = self.headerView;
   
+  [self initRefreshControlRelated];
+  
   [self sendPhotosRequest];
+}
+
+- (void)initRefreshControlRelated
+{
+  __weak typeof(self) weakSelf = self;
+  [self.refreshControl setCanRefreshDirection:kYARefreshableDirectionBottom];
+  [self.refreshControl setRefreshHandleAction:^(YARefreshDirection direction) {
+    [weakSelf sendPhotosRequest];
+    [weakSelf.refreshControl stopRefreshAtDirection:kYARefreshDirectionBottom animated:YES completion:nil];
+  }];
 }
 
 - (OnlineDetailHeaderView *)headerView
@@ -78,12 +91,24 @@
 	return self.dataArray.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  Photo *photo = [self.dataArray objectAtIndex:indexPath.row];
+  return [OnlineDetailCell heightWithPhoto:photo];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"no"];
+  NSString *identifier = @"OnlineDetailCell";
+  OnlineDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+  if (!cell) {
+    cell = [[OnlineDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+  }
+  
   Photo *photo = [self.dataArray objectAtIndex:indexPath.row];
-  [cell.imageView setImageWithURL:[NSURL URLWithString:photo.image]];
+  [cell configureWithPhoto:photo];
   return cell;
 }
+
 
 @end

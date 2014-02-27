@@ -9,6 +9,7 @@
 #import "OnlineDetailHeaderView.h"
 #import "ImageHelper.h"
 #import "NSDate+Online.h"
+#import "UIColor+Hex.h"
 
 @interface OnlineDetailHeaderView ()
 
@@ -33,7 +34,10 @@
   [self.timeLabel setFont:[UIFont systemFontOfSize:12]];
   
   CGRect frame = self.coverImageView.frame;
-  [ImageHelper colorImageView:self.coverImageView withImageURL:online.image destionationSize:frame.size];
+  [ImageHelper colorImageView:self.coverImageView
+                        color:[UIColor colorWithHex:0x888888 alpha:0.85f]
+                 withImageURL:online.image
+             destionationSize:frame.size];
   
   [self.titleLabel setText:online.title];
   NSString *timeText = [NSString stringWithFormat:@"活动日期:%@-%@",
