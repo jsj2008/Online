@@ -8,6 +8,7 @@
 
 #import "OnlineDetailHeaderView.h"
 #import "ImageHelper.h"
+#import "NSDate+Online.h"
 
 @interface OnlineDetailHeaderView ()
 
@@ -32,11 +33,13 @@
   [self.timeLabel setFont:[UIFont systemFontOfSize:12]];
   
   CGRect frame = self.coverImageView.frame;
-  //[ImageHelper scaleAndClipImageView:self.coverImageView withImageURL:online.image destionationSize:frame.size];
   [ImageHelper colorImageView:self.coverImageView withImageURL:online.image destionationSize:frame.size];
   
   [self.titleLabel setText:online.title];
-  [self.timeLabel setText:online.beginTime];
+  NSString *timeText = [NSString stringWithFormat:@"活动日期:%@-%@",
+                        [NSDate dateStringOnlineStyleString:online.beginTime],
+                        [NSDate dateStringOnlineStyleString:online.endTime]];
+  [self.timeLabel setText:timeText];
 }
 
 
