@@ -50,4 +50,6 @@
           withImageURL:(NSString *)imageURL
       destionationSize:(CGSize)destSize;
 
++ (void)clearImageCache;
+
 @end

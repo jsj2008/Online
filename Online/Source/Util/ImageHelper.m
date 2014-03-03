@@ -242,5 +242,12 @@
   return ceilf(fixedWidth * 9 / 16);
 }
 
++ (void)clearImageCache
+{
+  SDImageCache *imageCache = [SDImageCache sharedImageCache];
+  [imageCache clearMemory];
+  [imageCache clearDisk];
+}
+
 @end
 

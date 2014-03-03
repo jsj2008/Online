@@ -30,6 +30,7 @@
 		C716E47D18BEE6610004BFBF /* NSDate+Online.m in Sources */ = {isa = PBXBuildFile; fileRef = C716E47C18BEE6610004BFBF /* NSDate+Online.m */; };
 		C716E48A18BEF5080004BFBF /* PhotoArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C716E48918BEF5080004BFBF /* PhotoArray.m */; };
 		C716E48D18BF08740004BFBF /* OnlineDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C716E48C18BF08740004BFBF /* OnlineDetailCell.m */; };
+		C727658E18C4360E00994F96 /* UltraCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C727658D18C4360E00994F96 /* UltraCollectionViewLayout.m */; };
 		C75F1B8E18B5EDAE009CB662 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B8D18B5EDAE009CB662 /* AppDelegate.m */; };
 		C75F1B9418B5EE71009CB662 /* Online.m in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B9318B5EE71009CB662 /* Online.m */; };
 		C75F1B9718B5EE83009CB662 /* OnlineArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B9618B5EE83009CB662 /* OnlineArray.m */; };
@@ -105,6 +106,8 @@
 		C716E48918BEF5080004BFBF /* PhotoArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoArray.m; path = Source/Model/PhotoArray.m; sourceTree = "<group>"; };
 		C716E48B18BF08740004BFBF /* OnlineDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OnlineDetailCell.h; path = Source/Module/OnlineDetail/OnlineDetailCell.h; sourceTree = "<group>"; };
 		C716E48C18BF08740004BFBF /* OnlineDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OnlineDetailCell.m; path = Source/Module/OnlineDetail/OnlineDetailCell.m; sourceTree = "<group>"; };
+		C727658C18C4360E00994F96 /* UltraCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UltraCollectionViewLayout.h; path = Source/View/Layout/UltraCollectionViewLayout.h; sourceTree = "<group>"; };
+		C727658D18C4360E00994F96 /* UltraCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UltraCollectionViewLayout.m; path = Source/View/Layout/UltraCollectionViewLayout.m; sourceTree = "<group>"; };
 		C75F1B8C18B5EDAE009CB662 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Source/App/AppDelegate.h; sourceTree = "<group>"; };
 		C75F1B8D18B5EDAE009CB662 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Source/App/AppDelegate.m; sourceTree = "<group>"; };
 		C75F1B9218B5EE71009CB662 /* Online.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Online.h; path = Source/Model/Online.h; sourceTree = "<group>"; };
@@ -351,6 +354,8 @@
 			children = (
 				C77E121D18B74B5400B87350 /* LessBoringFlowLayout.h */,
 				C77E121E18B74B5400B87350 /* LessBoringFlowLayout.m */,
+				C727658C18C4360E00994F96 /* UltraCollectionViewLayout.h */,
+				C727658D18C4360E00994F96 /* UltraCollectionViewLayout.m */,
 			);
 			name = Layout;
 			sourceTree = "<group>";
@@ -570,6 +575,7 @@
 				C75F1B9D18B5EECB009CB662 /* Photo.m in Sources */,
 				C70BA29C18BB291A008265F6 /* MenuViewController.m in Sources */,
 				C77E121F18B74B5400B87350 /* LessBoringFlowLayout.m in Sources */,
+				C727658E18C4360E00994F96 /* UltraCollectionViewLayout.m in Sources */,
 				C77E121118B6F74000B87350 /* BaseViewController.m in Sources */,
 				C716E47818BDFEA10004BFBF /* OnlineCell.m in Sources */,
 				C77E11EB18B5F9B200B87350 /* User.m in Sources */,

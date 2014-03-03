@@ -13,8 +13,12 @@
 #import "YAUIKit.h"
 #import "AppConstant.h"
 #import "OnlineDetailController.h"
+#import "UltraCollectionViewLayout.h"
+#import "ImageHelper.h"
+
 
 #define CELL_IDENTIFIER        @"CollectionCell"
+#define ONLINE_FOOTER_IDENTIFIER  @"OnlineFooter"
 
 @interface OnlineViewController ()
 
@@ -29,12 +33,10 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  [ImageHelper clearImageCache];
   self.currentCate = @"day";
   [self sendOnlineRequestWithCate:self.currentCate loadMore:NO];
-  
   [self.bodyView addSubview:self.collectionView];
-  [self.collectionView setHidden:YES];
-  
   self.dataArray = [NSMutableArray array];
   [self initRefreshControlRelated];
 }
@@ -42,10 +44,9 @@
 - (UICollectionView *)collectionView
 {
   if (!_collectionView) {
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.itemSize = CGSizeMake(300, 200);
-    //layout.expandItemHeight = 300;
-    //layout.shrinkItemHeight = 120;
+    UltraCollectionViewLayout *layout = [[UltraCollectionViewLayout alloc] init];
+    layout.expandItemHeight = kOnlineCellHeight;
+    layout.shrinkItemHeight = kOnlineCellShrinkHeight;
     
     _collectionView = [[UICollectionView alloc] initWithFrame:self.bodyView.bounds collectionViewLayout:layout];
     _collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
@@ -55,6 +56,9 @@
     _collectionView.decelerationRate = UIScrollViewDecelerationRateNormal / 10;
     [_collectionView registerClass:[OnlineCell class]
         forCellWithReuseIdentifier:CELL_IDENTIFIER];
+    [_collectionView registerClass:[UICollectionReusableView class]
+        forSupplementaryViewOfKind:collectionKindSectionFooter
+               withReuseIdentifier:ONLINE_FOOTER_IDENTIFIER];
   }
   return _collectionView;
 }
@@ -115,6 +119,16 @@
   [collectionView deselectItemAtIndexPath:indexPath animated:YES];
 }
 
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+  UICollectionReusableView *reusableView =
+  [collectionView dequeueReusableSupplementaryViewOfKind:kind
+                                     withReuseIdentifier:ONLINE_FOOTER_IDENTIFIER
+                                            forIndexPath:indexPath];
+  return reusableView;
+}
+
+
 - (void)selectMenuType:(MenuType)menuType
 {
   NSString *cate = self.currentCate;
@@ -142,6 +156,25 @@
     [self sendOnlineRequestWithCate:self.currentCate loadMore:NO];
   }
   [self changeMenuViewType:menuType];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+  CGPoint point = scrollView.contentOffset;
+  UltraCollectionViewLayout *layout = (UltraCollectionViewLayout *)self.collectionView.collectionViewLayout;
+  CGPoint anotherPoint = CGPointMake(point.x, point.y + kOnlineCellHeight - kOnlineCellShrinkHeight + 50);
+  NSIndexPath *path = [self.collectionView indexPathForItemAtPoint:anotherPoint];
+  if (point.y <= layout.shrinkItemHeight) {
+    path = [NSIndexPath indexPathForRow:0 inSection:0];
+  }
+  
+  [self.collectionView performBatchUpdates:^{
+    [layout setShowingIndex:path.item];
+  } completion:nil];
+  
+  [self.collectionView scrollToItemAtIndexPath:path
+                              atScrollPosition:UICollectionViewScrollPositionLeft
+                                      animated:NO];
 }
 
 

@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UIImageView *onlineImageView;
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *descLabel;
+@property (nonatomic, strong) Online *online;
 
 @end
 
@@ -69,17 +70,20 @@
   [self.onlineImageView constrainHeightToView:self.mainView predicate:@"-10"];
   [self.onlineImageView constrainWidthToView:self.mainView predicate:@"0"];
   
-  [self.titleLabel constrainTopSpaceToView:self.mainView predicate:@"-50"];
+  [self.titleLabel constrainTopSpaceToView:self.mainView predicate:@"-40"];
   [self.titleLabel alignLeading:@"15" trailing:nil toView:self.mainView];
   [self.titleLabel constrainWidthToView:self.mainView predicate:@"<=-40"];
 }
 
 - (void)configureWithOnline:(Online *)online
 {
+  self.online = online;
   [self.onlineImageView setImage:nil];
+  
   [ImageHelper scaleAndClipImageView:self.onlineImageView
                         withImageURL:online.image
                     destionationSize:CGSizeMake(self.frame.size.width, kOnlineCellHeight)];
+  [self.onlineImageView setContentMode:UIViewContentModeBottom];
   [self.titleLabel setText:online.title];
 }
 

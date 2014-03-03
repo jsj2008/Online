@@ -26,7 +26,6 @@
   self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
   if (self) {
     self.photoImageView = [[UIImageView alloc] init];
-    [self.photoImageView setImage:nil];
     [self.contentView addSubview:self.photoImageView];
     
     self.avatarImageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 15, kAvatarSize, kAvatarSize)];
