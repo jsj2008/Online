@@ -6,10 +6,10 @@
 //  Copyright (c) 2014年 douban. All rights reserved.
 //
 
-#import "BaseTableViewController.h"
+#import "BaseViewController.h"
 
-@interface OnlineViewController : BaseTableViewController
-<UITableViewDataSource, UITableViewDelegate>
+@interface OnlineViewController : BaseViewController
+<UICollectionViewDataSource, UICollectionViewDelegate>
 
 
 @end

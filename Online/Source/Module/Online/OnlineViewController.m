@@ -14,9 +14,13 @@
 #import "AppConstant.h"
 #import "OnlineDetailController.h"
 
+#define CELL_IDENTIFIER        @"CollectionCell"
+
 @interface OnlineViewController ()
 
+@property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSString *currentCate;
+@property (nonatomic, strong) NSMutableArray *dataArray;
 
 @end
 
@@ -28,14 +32,34 @@
   self.currentCate = @"day";
   [self sendOnlineRequestWithCate:self.currentCate loadMore:NO];
   
-  self.tableView.dataSource = self;
-  self.tableView.delegate = self;
+  [self.bodyView addSubview:self.collectionView];
+  [self.collectionView setHidden:YES];
   
-  self.tableView.rowHeight = kOnlineCellHeight;
-  [self.tableView setHidden:YES];
-  [self initRefreshControlRelated];
+  self.dataArray = [NSMutableArray array];
 }
 
+- (UICollectionView *)collectionView
+{
+  if (!_collectionView) {
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.itemSize = CGSizeMake(300, 200);
+    //layout.expandItemHeight = 300;
+    //layout.shrinkItemHeight = 120;
+    
+    _collectionView = [[UICollectionView alloc] initWithFrame:self.bodyView.bounds collectionViewLayout:layout];
+    _collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    _collectionView.dataSource = self;
+    _collectionView.delegate = self;
+    _collectionView.backgroundColor = [UIColor colorWithWhite:0.5 alpha:1.0];
+    _collectionView.decelerationRate = UIScrollViewDecelerationRateNormal / 10;
+    [_collectionView registerClass:[OnlineCell class]
+        forCellWithReuseIdentifier:CELL_IDENTIFIER];
+  }
+  return _collectionView;
+}
+
+
+/*
 - (void)initRefreshControlRelated
 {
   __weak typeof(self) weakSelf = self;
@@ -45,7 +69,7 @@
     [weakSelf.refreshControl stopRefreshAtDirection:kYARefreshDirectionBottom animated:YES completion:nil];
   }];
 }
-
+*/
 - (void)sendOnlineRequestWithCate:(NSString *)cate loadMore:(BOOL)loadMore
 {
   __weak typeof(self) weakSelf = self;
@@ -53,46 +77,42 @@
   [self.httpClient getHotOnlinesByCast:cate start:start count:10 succeeded:^(OnlineArray *onlineArray) {
     if (loadMore) {
       [self.dataArray addObjectsFromArray:onlineArray.onlines];
-      [weakSelf.tableView reloadData];
+      [weakSelf.collectionView reloadData];
     } else {
       self.dataArray = [NSMutableArray arrayWithArray:onlineArray.onlines];
-      self.shownIndexes = [NSMutableSet set];
-      [weakSelf.tableView setHidden:NO];
-      [weakSelf.tableView reloadData];
-      [weakSelf.tableView setContentOffset:CGPointZero];
+      [weakSelf.collectionView setHidden:NO];
+      [weakSelf.collectionView reloadData];
+      [weakSelf.collectionView setContentOffset:CGPointZero];
     }
   } failed:^(DOUError *error) {
     NSLog(@"%@", error);
   }];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-	return 1;
+  return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
 	return self.dataArray.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-  OnlineCell *onlineCell = [tableView dequeueReusableCellWithIdentifier:@"OnlineCell"];
-  if (!onlineCell) {
-    onlineCell = [[OnlineCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"OnlineCell"];
-  }
+  OnlineCell *onlineCell = [collectionView dequeueReusableCellWithReuseIdentifier:CELL_IDENTIFIER forIndexPath:indexPath];
   Online *online = [self.dataArray objectAtIndex:indexPath.row];
   [onlineCell configureWithOnline:online];
   return onlineCell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
   Online *online = [self.dataArray objectAtIndex:indexPath.row];
   OnlineDetailController *controller = [[OnlineDetailController alloc] initWithOnline:online];
   [self.navigationController pushViewController:controller animated:YES];
-  [tableView deselectRowAtIndexPath:indexPath animated:YES];
+  [collectionView deselectItemAtIndexPath:indexPath animated:YES];
 }
 
 - (void)selectMenuType:(MenuType)menuType

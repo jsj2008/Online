@@ -8,7 +8,7 @@
 
 #import "Online.h"
 
-@interface OnlineCell : UITableViewCell
+@interface OnlineCell : UICollectionViewCell
 
 - (void)configureWithOnline:(Online *)online;
 @property (nonatomic, strong) UIView *mainView;
