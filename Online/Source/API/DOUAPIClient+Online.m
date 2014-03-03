@@ -119,4 +119,24 @@
 
 }
 
+- (void)getUserByID:(NSString *)userID
+          succeeded:(void (^)(User *user))succeeded
+             failed:(DOUAPIRequestFailErrorBlock)failed
+{
+  NSParameterAssert(succeeded != NULL);
+  NSString *finalPath = [NSString stringWithFormat:@"v2/user/%@", userID];
+  
+  [self getPath:finalPath parameters:nil success:^(NSString *string) {
+    NSError* err = nil;
+    User *user = [[User alloc] initWithString:string error:&err];
+    if (succeeded && err == nil) {
+      succeeded(user);
+    }
+  } failure:^(DOUError *error) {
+    if (failed) {
+      failed(error);
+    }
+  }];
+}
+
 @end

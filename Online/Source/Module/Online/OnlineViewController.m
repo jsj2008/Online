@@ -14,6 +14,8 @@
 #import "AppConstant.h"
 #import "OnlineDetailController.h"
 #import "UltraCollectionViewLayout.h"
+#import "LoginViewController.h"
+#import "OnlineAccount.h"
 
 #define CELL_IDENTIFIER        @"CollectionCell"
 #define ONLINE_FOOTER_IDENTIFIER  @"OnlineFooter"
@@ -143,7 +145,12 @@
       cate = @"week";
       break;
     case kProfile:
-      
+    {
+      if (![OnlineAccount isLogin]) {
+        LoginViewController *controller = [[LoginViewController alloc] initWithNibName:@"LoginView" bundle:nil];
+        [self.navigationController pushViewController:controller animated:YES];
+      }
+    }
       break;
     default:
       break;

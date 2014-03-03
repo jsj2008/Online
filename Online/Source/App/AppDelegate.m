@@ -10,6 +10,7 @@
 #import "DOUAPIClient.h"
 #import "AppConstant.h"
 #import "OnlineViewController.h"
+#import "OnlineAccount.h"
 
 @implementation AppDelegate
 
@@ -63,6 +64,9 @@
   [DOUAPIClient setAppDescriptionWithAppKey:kAppAPIKey
                                   appSecret:kAppAPISecret
                              appRedirectURL:kAppRedirectURL];
+  
+  OnlineAccount *account = [OnlineAccount currentAccount];
+  [DOUAPIClient setOAuth:account.oauth];
 }
 
 @end

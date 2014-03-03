@@ -31,6 +31,10 @@
 		C716E48A18BEF5080004BFBF /* PhotoArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C716E48918BEF5080004BFBF /* PhotoArray.m */; };
 		C716E48D18BF08740004BFBF /* OnlineDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C716E48C18BF08740004BFBF /* OnlineDetailCell.m */; };
 		C727658E18C4360E00994F96 /* UltraCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C727658D18C4360E00994F96 /* UltraCollectionViewLayout.m */; };
+		C72765B018C4893C00994F96 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C72765AF18C4893C00994F96 /* LoginView.xib */; };
+		C72765B318C48A3A00994F96 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C72765B218C48A3A00994F96 /* LoginViewController.m */; };
+		C72765B618C48BB400994F96 /* DataFormatHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C72765B518C48BB400994F96 /* DataFormatHelper.m */; };
+		C72765B918C48FD000994F96 /* OnlineAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = C72765B818C48FD000994F96 /* OnlineAccount.m */; };
 		C75F1B8E18B5EDAE009CB662 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B8D18B5EDAE009CB662 /* AppDelegate.m */; };
 		C75F1B9418B5EE71009CB662 /* Online.m in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B9318B5EE71009CB662 /* Online.m */; };
 		C75F1B9718B5EE83009CB662 /* OnlineArray.m in Sources */ = {isa = PBXBuildFile; fileRef = C75F1B9618B5EE83009CB662 /* OnlineArray.m */; };
@@ -108,6 +112,13 @@
 		C716E48C18BF08740004BFBF /* OnlineDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OnlineDetailCell.m; path = Source/Module/OnlineDetail/OnlineDetailCell.m; sourceTree = "<group>"; };
 		C727658C18C4360E00994F96 /* UltraCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UltraCollectionViewLayout.h; path = Source/View/Layout/UltraCollectionViewLayout.h; sourceTree = "<group>"; };
 		C727658D18C4360E00994F96 /* UltraCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UltraCollectionViewLayout.m; path = Source/View/Layout/UltraCollectionViewLayout.m; sourceTree = "<group>"; };
+		C72765AF18C4893C00994F96 /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LoginView.xib; path = Source/Module/UserManagement/LoginView.xib; sourceTree = "<group>"; };
+		C72765B118C48A3A00994F96 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Source/Module/UserManagement/LoginViewController.h; sourceTree = "<group>"; };
+		C72765B218C48A3A00994F96 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Source/Module/UserManagement/LoginViewController.m; sourceTree = "<group>"; };
+		C72765B418C48BB400994F96 /* DataFormatHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataFormatHelper.h; path = Source/Util/DataFormatHelper.h; sourceTree = "<group>"; };
+		C72765B518C48BB400994F96 /* DataFormatHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataFormatHelper.m; path = Source/Util/DataFormatHelper.m; sourceTree = "<group>"; };
+		C72765B718C48FD000994F96 /* OnlineAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OnlineAccount.h; path = Source/Module/UserManagement/OnlineAccount.h; sourceTree = "<group>"; };
+		C72765B818C48FD000994F96 /* OnlineAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OnlineAccount.m; path = Source/Module/UserManagement/OnlineAccount.m; sourceTree = "<group>"; };
 		C75F1B8C18B5EDAE009CB662 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Source/App/AppDelegate.h; sourceTree = "<group>"; };
 		C75F1B8D18B5EDAE009CB662 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Source/App/AppDelegate.m; sourceTree = "<group>"; };
 		C75F1B9218B5EE71009CB662 /* Online.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Online.h; path = Source/Model/Online.h; sourceTree = "<group>"; };
@@ -227,8 +238,22 @@
 				C716E46518BDD6CB0004BFBF /* ImageHelper.m */,
 				C716E47B18BEE6610004BFBF /* NSDate+Online.h */,
 				C716E47C18BEE6610004BFBF /* NSDate+Online.m */,
+				C72765B418C48BB400994F96 /* DataFormatHelper.h */,
+				C72765B518C48BB400994F96 /* DataFormatHelper.m */,
 			);
 			name = Util;
+			sourceTree = "<group>";
+		};
+		C72765AE18C488A300994F96 /* UserManagerment */ = {
+			isa = PBXGroup;
+			children = (
+				C72765AF18C4893C00994F96 /* LoginView.xib */,
+				C72765B118C48A3A00994F96 /* LoginViewController.h */,
+				C72765B218C48A3A00994F96 /* LoginViewController.m */,
+				C72765B718C48FD000994F96 /* OnlineAccount.h */,
+				C72765B818C48FD000994F96 /* OnlineAccount.m */,
+			);
+			name = UserManagerment;
 			sourceTree = "<group>";
 		};
 		C75F1B8518B5EC8E009CB662 /* Source */ = {
@@ -267,6 +292,7 @@
 		C75F1B8818B5ECAA009CB662 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				C72765AE18C488A300994F96 /* UserManagerment */,
 				C70BA2B018BC3387008265F6 /* OnlineDetail */,
 				C70BA29418BB28D4008265F6 /* Menu */,
 				C77E120D18B6F72200B87350 /* Base */,
@@ -511,6 +537,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C72765B018C4893C00994F96 /* LoginView.xib in Resources */,
 				C70BA29018BB2889008265F6 /* likes-32.png in Resources */,
 				C716E47A18BE07170004BFBF /* OnlineDetailHeaderView.xib in Resources */,
 				C716E45C18BDCD3B0004BFBF /* background.png in Resources */,
@@ -572,8 +599,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C72765B618C48BB400994F96 /* DataFormatHelper.m in Sources */,
+				C72765B318C48A3A00994F96 /* LoginViewController.m in Sources */,
 				C75F1B9D18B5EECB009CB662 /* Photo.m in Sources */,
 				C70BA29C18BB291A008265F6 /* MenuViewController.m in Sources */,
+				C72765B918C48FD000994F96 /* OnlineAccount.m in Sources */,
 				C77E121F18B74B5400B87350 /* LessBoringFlowLayout.m in Sources */,
 				C727658E18C4360E00994F96 /* UltraCollectionViewLayout.m in Sources */,
 				C77E121118B6F74000B87350 /* BaseViewController.m in Sources */,

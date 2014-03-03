@@ -9,6 +9,7 @@
 #import "DOUAPIClient.h"
 #import "OnlineArray.h"
 #import "PhotoArray.h"
+#import "User.h"
 
 @interface DOUAPIClient (Online)
 
@@ -45,5 +46,10 @@
                      count:(int)count
                  succeeded:(void (^)(PhotoArray *photoArray))succeeded
                     failed:(DOUAPIRequestFailErrorBlock)failed;
+
+- (void)getUserByID:(NSString *)userID
+          succeeded:(void (^)(User *user))succeeded
+             failed:(DOUAPIRequestFailErrorBlock)failed;
+
 
 @end
