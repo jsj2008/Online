@@ -36,6 +36,7 @@
   [self.collectionView setHidden:YES];
   
   self.dataArray = [NSMutableArray array];
+  [self initRefreshControlRelated];
 }
 
 - (UICollectionView *)collectionView
@@ -58,10 +59,9 @@
   return _collectionView;
 }
 
-
-/*
 - (void)initRefreshControlRelated
 {
+  self.refreshControl = [[YARefreshControl alloc] initWithScrollView:self.collectionView];
   __weak typeof(self) weakSelf = self;
   [self.refreshControl setCanRefreshDirection:kYARefreshableDirectionBottom];
   [self.refreshControl setRefreshHandleAction:^(YARefreshDirection direction) {
@@ -69,7 +69,7 @@
     [weakSelf.refreshControl stopRefreshAtDirection:kYARefreshDirectionBottom animated:YES completion:nil];
   }];
 }
-*/
+
 - (void)sendOnlineRequestWithCate:(NSString *)cate loadMore:(BOOL)loadMore
 {
   __weak typeof(self) weakSelf = self;

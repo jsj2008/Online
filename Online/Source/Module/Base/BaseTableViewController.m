@@ -15,6 +15,7 @@
 @end
 
 @implementation BaseTableViewController
+@synthesize refreshControl = _refreshControl;
 
 - (void)viewDidLoad
 {

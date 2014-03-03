@@ -10,12 +10,14 @@
 #import "DOUAPIClient+Online.h"
 #import "MenuView.h"
 #import "MenuViewController.h"
+#import "YAUIKit.h"
 
 @interface BaseViewController : UIViewController<MenuViewDelegate, MenuSelectDelegate>
 
 @property (nonatomic, strong) DOUAPIClient *httpClient;
 @property (nonatomic, strong) UIView *bodyView;
 @property (nonatomic, strong) MenuView *menuView;
+@property (nonatomic, strong) YARefreshControl *refreshControl;
 
 - (void)changeMenuViewType:(MenuType)type;
 
