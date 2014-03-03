@@ -73,7 +73,7 @@
 {
   __weak typeof(self) weakSelf = self;
   [self.httpClient getPhotosOfAlbumID:self.online.albumID
-                                start:self.dataArray.count
+                                start:(int)self.dataArray.count
                                 count:10
                             succeeded:^(PhotoArray *photoArray) {
                               [weakSelf.dataArray addObjectsFromArray:photoArray.photos];
@@ -104,7 +104,6 @@
   if (!cell) {
     cell = [[OnlineDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
   }
-  
   Photo *photo = [self.dataArray objectAtIndex:indexPath.row];
   [cell configureWithPhoto:photo];
   return cell;

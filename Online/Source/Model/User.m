@@ -25,4 +25,9 @@
             }];
 }
 
++(BOOL)propertyIsOptional:(NSString*)propertyName
+{
+  return YES;
+}
+
 @end

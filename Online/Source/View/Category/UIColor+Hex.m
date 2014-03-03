@@ -20,7 +20,7 @@
 
 + (UIColor *)randomDarkColor
 {
-  int base = 72;
+  int base = 56;
   int redValue = random() % base;
   int greenValue = random() % base;
   int blueValue = random() % base;
@@ -32,7 +32,7 @@
 
 + (UIColor *)randomThinColor
 {
-  int base = 72;
+  int base = 56;
   int redValue = random() % base + (255 - base);
   int greenValue = random() % base + (255 - base);
   int blueValue = random() % base + (255 - base);

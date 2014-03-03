@@ -49,7 +49,7 @@
 - (void)sendOnlineRequestWithCate:(NSString *)cate loadMore:(BOOL)loadMore
 {
   __weak typeof(self) weakSelf = self;
-  int start = loadMore ? self.dataArray.count : 0;
+  int start = loadMore ? (int)self.dataArray.count : 0;
   [self.httpClient getHotOnlinesByCast:cate start:start count:10 succeeded:^(OnlineArray *onlineArray) {
     if (loadMore) {
       [self.dataArray addObjectsFromArray:onlineArray.onlines];

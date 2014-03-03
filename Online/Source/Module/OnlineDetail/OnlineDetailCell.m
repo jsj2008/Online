@@ -50,14 +50,13 @@
 {
   CGFloat width = self.frame.size.width;
   CGFloat height = [[self class] heightWithPhoto:photo];
+  [self.photoImageView setImage:nil];
   [self.photoImageView setFrame:CGRectMake(0, 0, width, height)];
-  [ImageHelper colorImageView:self.photoImageView
-                        color:[UIColor colorWithHex:0x666666 alpha:0.85f]
-                 withImageURL:photo.image
-             destionationSize:CGSizeMake(width, height)];
 
+  [ImageHelper scaleAndClipImageView:self.photoImageView
+                        withImageURL:photo.image
+                    destionationSize:CGSizeMake(width, height)];
   [ImageHelper configureAvatarImageView:self.avatarImageView withImageURL:photo.author.avatar];
-  [self.authorLabel setText:photo.author.name];
 }
 
 + (CGFloat)heightWithPhoto:(Photo *)photo

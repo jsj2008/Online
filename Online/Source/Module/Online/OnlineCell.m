@@ -76,6 +76,7 @@
 
 - (void)configureWithOnline:(Online *)online
 {
+  [self.onlineImageView setImage:nil];
   [ImageHelper scaleAndClipImageView:self.onlineImageView
                         withImageURL:online.image
                     destionationSize:CGSizeMake(self.frame.size.width, kOnlineCellHeight)];
