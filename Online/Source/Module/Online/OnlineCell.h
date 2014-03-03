@@ -11,7 +11,6 @@
 @interface OnlineCell : UICollectionViewCell
 
 - (void)configureWithOnline:(Online *)online;
-- (void)cellWillExpand;
 
 @property (nonatomic, strong) UIView *mainView;
 

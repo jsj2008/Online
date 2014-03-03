@@ -14,8 +14,6 @@
 #import "AppConstant.h"
 #import "OnlineDetailController.h"
 #import "UltraCollectionViewLayout.h"
-#import "ImageHelper.h"
-
 
 #define CELL_IDENTIFIER        @"CollectionCell"
 #define ONLINE_FOOTER_IDENTIFIER  @"OnlineFooter"
@@ -33,7 +31,6 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  [ImageHelper clearImageCache];
   self.currentCate = @"day";
   [self sendOnlineRequestWithCate:self.currentCate loadMore:NO];
   [self.bodyView addSubview:self.collectionView];

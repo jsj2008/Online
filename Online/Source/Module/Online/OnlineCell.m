@@ -70,7 +70,7 @@
   [self.onlineImageView constrainHeightToView:self.mainView predicate:@"-10"];
   [self.onlineImageView constrainWidthToView:self.mainView predicate:@"0"];
   
-  [self.titleLabel constrainTopSpaceToView:self.mainView predicate:@"-40"];
+  [self.titleLabel constrainTopSpaceToView:self.mainView predicate:@"-50"];
   [self.titleLabel alignLeading:@"15" trailing:nil toView:self.mainView];
   [self.titleLabel constrainWidthToView:self.mainView predicate:@"<=-40"];
 }
