@@ -9,7 +9,7 @@
 #import "BaseViewController.h"
 
 @interface OnlineViewController : BaseViewController
-<UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate>
+<UICollectionViewDataSource, UICollectionViewDelegate>
 
 
 @end

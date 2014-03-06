@@ -61,7 +61,7 @@
 {
   if (!_titleArray) {
     _titleArray = [NSArray arrayWithObjects:
-                   @"猜你喜欢", @"今日热门", @"本周热门", @"最新活动", @"我的信息", nil];
+                  @"今日热门", @"本周热门", @"最新活动", @"我的信息", nil];
   }
   return _titleArray;
 }
@@ -70,7 +70,7 @@
 {
   if (!_imageArray) {
     _imageArray = [NSArray arrayWithObjects:
-                   @"likes-32", @"today-32", @"week_view-32", @"menu-32", @"checked_user-32", nil];
+                  @"today-32", @"week_view-32", @"menu-32", @"checked_user-32", nil];
   }
   return _imageArray;
 }

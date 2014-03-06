@@ -8,6 +8,7 @@
 
 #import "DOUAPIClient+Online.h"
 #import "AppConstant.h"
+#import "OnlineAccount.h"
 
 @implementation DOUAPIClient(Online)
 
@@ -26,36 +27,19 @@
                      failed:(DOUAPIRequestFailErrorBlock)failed
 {
   NSParameterAssert(succeeded != NULL);
-  NSString *finalPath = [NSString stringWithFormat:@"v2/onlines"];
+  NSString *finalPath;
+  if ([cast isEqualToString:@"guess"]) {
+    OnlineAccount *account = [OnlineAccount currentAccount];
+    if (nil == account) {
+      return;
+    }
+    finalPath = [NSString stringWithFormat:@"v2/online/people_onlines/%@/guesses", account.userUUID];
+  } else {
+    finalPath = [NSString stringWithFormat:@"v2/onlines"];
+  }
   
   NSMutableDictionary *parameter = [[NSMutableDictionary alloc]initWithCapacity:3];
   [parameter setObject:cast forKey:@"cate"];
-  [parameter setValue:[NSNumber numberWithInt:count] forKey:@"count"];
-  [parameter setObject:[NSNumber numberWithInt:start] forKey:@"start"];
-  
-  [self getPath:finalPath parameters:parameter success:^(NSString *string) {
-    NSError* err = nil;
-    OnlineArray *array = [[OnlineArray alloc] initWithString:string error:&err];
-    if (succeeded && err == nil) {
-      succeeded(array);
-    }
-  } failure:^(DOUError *error) {
-    if (failed) {
-      failed(error);
-    }
-  }];
-}
-
-- (void)getGuessOnlinesWithUserID:(NSString *)userID
-                            start:(int)start
-                            count:(int)count
-                        succeeded:(void (^)(OnlineArray *onlineArray))succeeded
-                           failed:(DOUAPIRequestFailErrorBlock)failed
-{
-  NSParameterAssert(succeeded != NULL);
-  NSString *finalPath = [NSString stringWithFormat:@"v2/online/people_onlines/%@/guesses", userID];
-  
-  NSMutableDictionary *parameter = [[NSMutableDictionary alloc]initWithCapacity:2];
   [parameter setValue:[NSNumber numberWithInt:count] forKey:@"count"];
   [parameter setObject:[NSNumber numberWithInt:start] forKey:@"start"];
   

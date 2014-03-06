@@ -225,5 +225,9 @@ NSString *const collectionKindSectionFooter = @"KindSectionFooter";
   return layoutAttributes;
 }
 
+-(BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds
+{
+  return YES;
+}
 
 @end

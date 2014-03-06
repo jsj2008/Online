@@ -89,7 +89,7 @@
   [super viewDidLoad];
   [self.view addSubview:self.bodyView];
   [self.view addSubview:self.menuView];
-  [self changeMenuViewType:kGuessYouLike];
+  [self changeMenuViewType:kTodayHotOnline];
   [self setupPanBackController];
 }
 

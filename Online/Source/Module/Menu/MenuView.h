@@ -9,8 +9,7 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM (NSInteger, MenuType) {
-  kGuessYouLike = 0,
-  kTodayHotOnline,
+  kTodayHotOnline = 0,
   kWeekHotOnline,
   kLatestOnline,
   kProfile,

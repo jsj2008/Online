@@ -34,9 +34,9 @@
 {
   [super viewDidLoad];
   self.currentCate = @"day";
-  [self sendOnlineRequestWithCate:self.currentCate loadMore:NO];
   [self.bodyView addSubview:self.collectionView];
   self.dataArray = [NSMutableArray array];
+  [self sendOnlineRequestWithCate:self.currentCate loadMore:NO];
   [self initRefreshControlRelated];
 }
 
@@ -82,9 +82,8 @@
       [weakSelf.collectionView reloadData];
     } else {
       weakSelf.dataArray = [NSMutableArray arrayWithArray:onlineArray.onlines];
-      [weakSelf.collectionView setHidden:NO];
-      [weakSelf.collectionView reloadData];
       [weakSelf.collectionView setContentOffset:CGPointZero];
+      [weakSelf.collectionView reloadData];
     }
   } failed:NULL];
 }
@@ -129,9 +128,6 @@
 {
   NSString *cate = self.currentCate;
   switch (menuType) {
-    case kGuessYouLike:
-
-      break;
     case kTodayHotOnline:
       cate = @"day";
       break;
