@@ -8,7 +8,7 @@
 
 #import "JSONModel.h"
 
-@interface User : JSONModel
+@interface User : JSONModel<NSCoding>
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, assign) BOOL isBanned;

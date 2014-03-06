@@ -30,4 +30,26 @@
   return YES;
 }
 
+- (id)initWithCoder:(NSCoder *)coder
+{
+  self = [super init];
+  if(self != nil) {
+    self.name = [coder decodeObjectForKey:@"name"];
+    self.avatar = [coder decodeObjectForKey:@"avatar"];
+    self.uid = [coder decodeObjectForKey:@"uid"];
+    self.userID = [coder decodeObjectForKey:@"userID"];
+    self.largeAvatar = [coder decodeObjectForKey:@"largeAvatar"];
+  }
+  return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder
+{
+  [coder encodeObject:self.name forKey:@"name"];
+  [coder encodeObject:self.avatar forKey:@"avatar"];
+  [coder encodeObject:self.uid forKey:@"uid"];
+  [coder encodeObject:self.userID forKey:@"userID"];
+  [coder encodeObject:self.largeAvatar forKey:@"largeAvatar"];
+}
+
 @end
