@@ -161,7 +161,7 @@
   }
   [self changeMenuViewType:menuType];
 }
-
+/*
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
   CGPoint point = scrollView.contentOffset;
@@ -180,6 +180,6 @@
                               atScrollPosition:UICollectionViewScrollPositionLeft
                                       animated:NO];
 }
-
+*/
 
 @end

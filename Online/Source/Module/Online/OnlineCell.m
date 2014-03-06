@@ -83,7 +83,7 @@
   [ImageHelper scaleAndClipImageView:self.onlineImageView
                         withImageURL:online.image
                     destionationSize:CGSizeMake(self.frame.size.width, kOnlineCellHeight)];
-  [self.onlineImageView setContentMode:UIViewContentModeBottom];
+  //[self.onlineImageView setContentMode:UIViewContentModeBottom];
   [self.titleLabel setText:online.title];
 }
 
