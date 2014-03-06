@@ -82,8 +82,10 @@
       [weakSelf.collectionView reloadData];
     } else {
       weakSelf.dataArray = [NSMutableArray arrayWithArray:onlineArray.onlines];
-      [weakSelf.collectionView setContentOffset:CGPointZero];
       [weakSelf.collectionView reloadData];
+      [weakSelf.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0]
+                                      atScrollPosition:UICollectionViewScrollPositionBottom
+                                              animated:YES];
     }
   } failed:NULL];
 }
