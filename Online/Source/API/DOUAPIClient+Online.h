@@ -36,6 +36,12 @@
                            succeeded:(void (^)(OnlineArray *onlineArray))succeeded
                               failed:(DOUAPIRequestFailErrorBlock)failed;
 
+- (void)getGuessOnlinesWithUserID:(NSString *)userID
+                            start:(int)start
+                            count:(int)count
+                        succeeded:(void (^)(OnlineArray *onlineArray))succeeded
+                           failed:(DOUAPIRequestFailErrorBlock)failed;
+
 - (void)getOnlineWithID:(int)onlineID
               succeeded:(void (^)(Online *online))succeeded
                  failed:(DOUAPIRequestFailErrorBlock)failed;

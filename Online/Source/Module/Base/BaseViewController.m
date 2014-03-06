@@ -58,6 +58,8 @@
 {
   MenuViewController *controller = [[MenuViewController alloc] init];
   controller.delegate = self;
+  [self presentViewController:controller animated:YES completion:NULL];
+  /*
   [self presentViewController:controller animated:YES completion:^{
     CAKeyframeAnimation *animation=[CAKeyframeAnimation animationWithKeyPath:@"position"];
     CGFloat middleX = ceilf(self.view.frame.size.width / 2);
@@ -72,6 +74,7 @@
 
     [controller.view.layer addAnimation:animation forKey:nil];
   }];
+   */
 }
 
 //TODO: move it away

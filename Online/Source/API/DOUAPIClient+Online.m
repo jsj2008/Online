@@ -46,6 +46,32 @@
   }];
 }
 
+- (void)getGuessOnlinesWithUserID:(NSString *)userID
+                            start:(int)start
+                            count:(int)count
+                        succeeded:(void (^)(OnlineArray *onlineArray))succeeded
+                           failed:(DOUAPIRequestFailErrorBlock)failed
+{
+  NSParameterAssert(succeeded != NULL);
+  NSString *finalPath = [NSString stringWithFormat:@"v2/online/people_onlines/%@/guesses", userID];
+  
+  NSMutableDictionary *parameter = [[NSMutableDictionary alloc]initWithCapacity:2];
+  [parameter setValue:[NSNumber numberWithInt:count] forKey:@"count"];
+  [parameter setObject:[NSNumber numberWithInt:start] forKey:@"start"];
+  
+  [self getPath:finalPath parameters:parameter success:^(NSString *string) {
+    NSError* err = nil;
+    OnlineArray *array = [[OnlineArray alloc] initWithString:string error:&err];
+    if (succeeded && err == nil) {
+      succeeded(array);
+    }
+  } failure:^(DOUError *error) {
+    if (failed) {
+      failed(error);
+    }
+  }];
+}
+
 - (void)getDailyHotOnlinesWithStart:(int)start
                               count:(int)count
                           succeeded:(void (^)(OnlineArray *onlineArray))succeeded

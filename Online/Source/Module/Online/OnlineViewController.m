@@ -52,7 +52,6 @@
     _collectionView.dataSource = self;
     _collectionView.delegate = self;
     _collectionView.backgroundColor = [UIColor colorWithWhite:0.5 alpha:1.0];
-    _collectionView.decelerationRate = UIScrollViewDecelerationRateNormal / 10;
     [_collectionView registerClass:[OnlineCell class]
         forCellWithReuseIdentifier:CELL_IDENTIFIER];
     [_collectionView registerClass:[UICollectionReusableView class]
@@ -82,14 +81,12 @@
       [self.dataArray addObjectsFromArray:onlineArray.onlines];
       [weakSelf.collectionView reloadData];
     } else {
-      self.dataArray = [NSMutableArray arrayWithArray:onlineArray.onlines];
+      weakSelf.dataArray = [NSMutableArray arrayWithArray:onlineArray.onlines];
       [weakSelf.collectionView setHidden:NO];
       [weakSelf.collectionView reloadData];
       [weakSelf.collectionView setContentOffset:CGPointZero];
     }
-  } failed:^(DOUError *error) {
-    NSLog(@"%@", error);
-  }];
+  } failed:NULL];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -149,6 +146,8 @@
       if (![OnlineAccount isLogin]) {
         LoginViewController *controller = [[LoginViewController alloc] initWithNibName:@"LoginView" bundle:nil];
         [self.navigationController pushViewController:controller animated:YES];
+      } else {
+        
       }
     }
       break;
@@ -161,6 +160,9 @@
   }
   [self changeMenuViewType:menuType];
 }
+
+
+
 /*
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
