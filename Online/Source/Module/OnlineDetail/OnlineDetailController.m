@@ -35,11 +35,9 @@
   [super viewDidLoad];
   self.tableView.dataSource = self;
   self.tableView.delegate = self;
-  
   self.tableView.tableHeaderView = self.headerView;
-  
+    
   [self initRefreshControlRelated];
-  
   [self sendPhotosRequest];
 }
 
@@ -71,12 +69,14 @@
 - (void)sendPhotosRequest
 {
   __weak typeof(self) weakSelf = self;
+  [self.headerView startShimmering];
   [self.httpClient getPhotosOfAlbumID:self.online.albumID
                                 start:(int)self.dataArray.count
                                 count:10
                             succeeded:^(PhotoArray *photoArray) {
                               [weakSelf.dataArray addObjectsFromArray:photoArray.photos];
                               [weakSelf.tableView reloadData];
+                              [weakSelf.headerView stopShimmering];
                             } failed:NULL];
 }
 

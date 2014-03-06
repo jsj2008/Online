@@ -10,8 +10,11 @@
 #import "ImageHelper.h"
 #import "NSDate+Online.h"
 #import "UIColor+Hex.h"
+#import "FBShimmeringView.h"
 
 @interface OnlineDetailHeaderView ()
+
+@property (nonatomic, strong) FBShimmeringView *shimmeringView;
 
 @end
 
@@ -24,6 +27,18 @@
     
   }
   return self;
+}
+
+- (FBShimmeringView *)shimmeringView
+{
+  if (!_shimmeringView) {
+    _shimmeringView = [[FBShimmeringView alloc] initWithFrame:self.bounds];
+    _shimmeringView.contentView = self.titleLabel;
+    if (_shimmeringView.superview == nil) {
+      [self addSubview:_shimmeringView];
+    }
+  }
+  return _shimmeringView;
 }
 
 - (void)configureWithOnline:(Online *)online
@@ -40,6 +55,7 @@
              destionationSize:frame.size];
   
   [self.titleLabel setText:online.title];
+  [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
   NSString *timeText = [NSString stringWithFormat:@"活动日期:%@-%@",
                         [NSDate dateStringOnlineStyleString:online.beginTime],
                         [NSDate dateStringOnlineStyleString:online.endTime]];
@@ -48,6 +64,16 @@
   [self.participateLabel setText:[NSString stringWithFormat:@"%d人参加", online.participantCount]];
   [self.likeLabel setText:[NSString stringWithFormat:@"%d人喜欢", online.likeCount]];
   [self.photoLabel setText:[NSString stringWithFormat:@"%d张图片", online.photoCount]];
+}
+
+- (void)startShimmering
+{
+  [self.shimmeringView setShimmering:YES];
+}
+
+- (void)stopShimmering
+{
+  [self.shimmeringView setShimmering:NO];
 }
 
 

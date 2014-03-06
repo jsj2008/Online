@@ -19,5 +19,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *photoLabel;
 
 - (void)configureWithOnline:(Online *)online;
+- (void)startShimmering;
+- (void)stopShimmering;
 
 @end
