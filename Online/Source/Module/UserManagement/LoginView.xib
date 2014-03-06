@@ -6,10 +6,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
-                <outlet property="bodyView" destination="1" id="Anc-Or-FK7"/>
                 <outlet property="emailTextField" destination="qo7-pF-BjA" id="2qu-I7-l4j"/>
                 <outlet property="loginButton" destination="T3F-FR-kaM" id="omV-Wb-Bh9"/>
                 <outlet property="passwordTextField" destination="nka-BV-5Mj" id="sVR-fa-roY"/>
+                <outlet property="view" destination="1" id="K6o-QF-8ao"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

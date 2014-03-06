@@ -35,7 +35,8 @@
 }
 
 - (void)loadSubViews
-{  
+{
+  [self.bodyView removeFromSuperview];
   _emailTextField.accessibilityLabel = @"emailTextField";
   _emailTextField.backgroundColor = [UIColor clearColor];
   _emailTextField.autocorrectionType = UITextAutocorrectionTypeNo;
