@@ -10,7 +10,6 @@
 #import "ImageHelper.h"
 #import "UIColor+Hex.h"
 #import "AppConstant.h"
-#import "MHFacebookImageViewer.h"
 
 @interface OnlineDetailCell ()
 

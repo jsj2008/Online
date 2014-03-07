@@ -10,8 +10,9 @@
 #import "OnlineDetailHeaderView.h"
 #import "UIImageView+WebCache.h"
 #import "OnlineDetailCell.h"
+#import "MHFacebookImageViewer.h"
 
-@interface OnlineDetailController ()<UITableViewDataSource, UITableViewDelegate>
+@interface OnlineDetailController ()<UITableViewDataSource, UITableViewDelegate, MHFacebookImageViewerDatasource>
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @property (nonatomic, strong) Online *online;
@@ -105,8 +106,24 @@
   }
   Photo *photo = [self.dataArray objectAtIndex:indexPath.row];
   [cell configureWithPhoto:photo];
+  [cell.photoImageView setupImageViewerWithDatasource:self
+                                         initialIndex:indexPath.row
+                                               onOpen:NULL
+                                              onClose:NULL];
   return cell;
 }
 
+- (NSInteger) numberImagesForImageViewer:(MHFacebookImageViewer *)imageViewer {
+  return self.dataArray.count;
+}
+
+-  (NSURL*) imageURLAtIndex:(NSInteger)index imageViewer:(MHFacebookImageViewer *)imageViewer {
+  Photo *photo = [self.dataArray objectAtIndex:index];
+  return [NSURL URLWithString:photo.image];
+}
+
+- (UIImage*) imageDefaultAtIndex:(NSInteger)index imageViewer:(MHFacebookImageViewer *)imageViewer{
+  return [UIImage imageNamed:@"black_bg"];
+}
 
 @end
