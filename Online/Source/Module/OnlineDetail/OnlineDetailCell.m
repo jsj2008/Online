@@ -10,10 +10,10 @@
 #import "ImageHelper.h"
 #import "UIColor+Hex.h"
 #import "AppConstant.h"
+#import "MHFacebookImageViewer.h"
 
 @interface OnlineDetailCell ()
 
-@property (nonatomic, strong) UIImageView *photoImageView;
 @property (nonatomic, strong) UIImageView *avatarImageView;
 @property (nonatomic, strong) UILabel *authorLabel;
 
@@ -55,6 +55,7 @@
   [ImageHelper scaleAndClipImageView:self.photoImageView
                         withImageURL:photo.image
                     destionationSize:CGSizeMake(width, height)];
+  //[self.photoImageView setupImageViewer];
   [ImageHelper configureAvatarImageView:self.avatarImageView withImageURL:photo.author.avatar];
 }
 

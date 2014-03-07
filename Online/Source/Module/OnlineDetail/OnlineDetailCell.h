@@ -12,5 +12,6 @@
 
 - (void)configureWithPhoto:(Photo *)photo;
 + (CGFloat)heightWithPhoto:(Photo *)photo;
+@property (nonatomic, strong) UIImageView *photoImageView;
 
 @end
