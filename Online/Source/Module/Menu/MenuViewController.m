@@ -23,11 +23,11 @@
 
 - (void)initTableView
 {
-  CGFloat height = kMenuListSize * kMenuCellHeight;
+  CGFloat height = kMenuListSize * ceilf(kMenuCellHeight * 2.4);
   CGFloat originY = self.view.frame.size.height - height;
   self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, originY, self.view.frame.size.width, height)
                                                 style:UITableViewStylePlain];
-  self.tableView.rowHeight = kMenuCellHeight;
+  self.tableView.rowHeight = ceilf(kMenuCellHeight * 2.4);
   self.tableView.dataSource = self;
   self.tableView.delegate = self;
   [self.view addSubview:self.tableView];

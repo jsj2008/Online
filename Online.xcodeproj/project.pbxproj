@@ -21,6 +21,8 @@
 		C70E172118C9A68C00C98FF5 /* Done.png in Resources */ = {isa = PBXBuildFile; fileRef = C70E172018C9A68C00C98FF5 /* Done.png */; };
 		C70E172318C9AAE800C98FF5 /* chat.png in Resources */ = {isa = PBXBuildFile; fileRef = C70E172218C9AAE800C98FF5 /* chat.png */; };
 		C70E172518C9B2A800C98FF5 /* ic_tool_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C70E172418C9B2A800C98FF5 /* ic_tool_back@2x.png */; };
+		C70E172818C9F9BC00C98FF5 /* UserInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C70E172718C9F9BC00C98FF5 /* UserInfoView.xib */; };
+		C70E173518C9FDFB00C98FF5 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C70E173418C9FDFB00C98FF5 /* UserInfoViewController.m */; };
 		C716E45C18BDCD3B0004BFBF /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = C716E45B18BDCD3B0004BFBF /* background.png */; };
 		C716E45F18BDD5ED0004BFBF /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = C716E45E18BDD5ED0004BFBF /* UIImage+Resize.m */; };
 		C716E46618BDD6CB0004BFBF /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C716E46518BDD6CB0004BFBF /* ImageHelper.m */; };
@@ -98,6 +100,9 @@
 		C70E172018C9A68C00C98FF5 /* Done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Done.png; path = Resource/images/Done.png; sourceTree = "<group>"; };
 		C70E172218C9AAE800C98FF5 /* chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chat.png; path = Resource/images/chat.png; sourceTree = "<group>"; };
 		C70E172418C9B2A800C98FF5 /* ic_tool_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ic_tool_back@2x.png"; path = "Resource/images/ic_tool_back@2x.png"; sourceTree = "<group>"; };
+		C70E172718C9F9BC00C98FF5 /* UserInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserInfoView.xib; path = Source/Module/UserInfo/UserInfoView.xib; sourceTree = "<group>"; };
+		C70E173318C9FDFB00C98FF5 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoViewController.h; path = Source/Module/UserInfo/UserInfoViewController.h; sourceTree = "<group>"; };
+		C70E173418C9FDFB00C98FF5 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoViewController.m; path = Source/Module/UserInfo/UserInfoViewController.m; sourceTree = "<group>"; };
 		C716E45B18BDCD3B0004BFBF /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = Resource/images/background.png; sourceTree = "<group>"; };
 		C716E45D18BDD5ED0004BFBF /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "Source/View/Category/UIImage+Resize.h"; sourceTree = "<group>"; };
 		C716E45E18BDD5ED0004BFBF /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "Source/View/Category/UIImage+Resize.m"; sourceTree = "<group>"; };
@@ -255,6 +260,16 @@
 			name = lib;
 			sourceTree = "<group>";
 		};
+		C70E172618C9F98B00C98FF5 /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				C70E172718C9F9BC00C98FF5 /* UserInfoView.xib */,
+				C70E173318C9FDFB00C98FF5 /* UserInfoViewController.h */,
+				C70E173418C9FDFB00C98FF5 /* UserInfoViewController.m */,
+			);
+			name = UserInfo;
+			sourceTree = "<group>";
+		};
 		C716E46318BDD6AD0004BFBF /* Util */ = {
 			isa = PBXGroup;
 			children = (
@@ -317,6 +332,7 @@
 		C75F1B8818B5ECAA009CB662 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				C70E172618C9F98B00C98FF5 /* UserInfo */,
 				C72765AE18C488A300994F96 /* UserManagerment */,
 				C70BA2B018BC3387008265F6 /* OnlineDetail */,
 				C70BA29418BB28D4008265F6 /* Menu */,
@@ -569,6 +585,7 @@
 				C716E45C18BDCD3B0004BFBF /* background.png in Resources */,
 				C716E46818BDD7690004BFBF /* ic_avatar.png in Resources */,
 				C79CF33718B5CE1900DAAA0F /* InfoPlist.strings in Resources */,
+				C70E172818C9F9BC00C98FF5 /* UserInfoView.xib in Resources */,
 				C70BA28F18BB2889008265F6 /* checked_user-32.png in Resources */,
 				C70BA29318BB2889008265F6 /* week_view-32.png in Resources */,
 				C79CF33F18B5CE1900DAAA0F /* Images.xcassets in Resources */,
@@ -645,6 +662,7 @@
 				C79CF33918B5CE1900DAAA0F /* main.m in Sources */,
 				C77E11F818B6044600B87350 /* ImageSize.m in Sources */,
 				C716E45F18BDD5ED0004BFBF /* UIImage+Resize.m in Sources */,
+				C70E173518C9FDFB00C98FF5 /* UserInfoViewController.m in Sources */,
 				C77E121418B6F9B400B87350 /* BaseCollectionViewController.m in Sources */,
 				C77E120518B6EDC200B87350 /* AppConstant.m in Sources */,
 				C716E48D18BF08740004BFBF /* OnlineDetailCell.m in Sources */,
