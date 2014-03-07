@@ -13,7 +13,7 @@
 
 @interface MenuView ()
 
-@property (nonatomic, strong) UIButton *titleButton;
+@property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, assign) BOOL didSetupConstraints;
 
@@ -32,28 +32,28 @@
   self = [super initWithFrame:frame];
   if (self) {
     [self setBackgroundColor:MENU_BGCOLOR];
-    self.titleButton = [[UIButton alloc] init];
-    [self.titleButton setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self.titleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [self.titleButton addTarget:self
-                         action:@selector(titlePressed)
-               forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:self.titleButton];
+    self.titleLabel = [[UILabel alloc] init];
+    [self.titleLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self addSubview:self.titleLabel];
     
     self.imageView = [[UIImageView alloc] init];
     [self.imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self addSubview:self.imageView];
     
-    [self.titleButton alignCenterXWithView:self predicate:nil];
-    [self.titleButton alignCenterYWithView:self predicate:nil];
+    [self.titleLabel alignCenterXWithView:self predicate:nil];
+    [self.titleLabel alignCenterYWithView:self predicate:nil];
     [self.imageView alignTop:@"5" leading:@"10" toView:self];
+    
+    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                 action:@selector(titlePressed)];
+    [self addGestureRecognizer:recognizer];
   }
   return self;
 }
 
 - (void)configureWithTitle:(NSString *)title imageName:(NSString *)imageName
 {
-  [self.titleButton setTitle:title forState:UIControlStateNormal];
+  [self.titleLabel setText:title];
   [self.imageView setImage:[UIImage imageNamed:imageName]];
 }
 
