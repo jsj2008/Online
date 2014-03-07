@@ -20,13 +20,18 @@
 
 @implementation OnlineDetailHeaderView
 
-- (id)initWithFrame:(CGRect)frame
+- (void)awakeFromNib
 {
-  self = [super initWithFrame:frame];
-  if (self) {
-    
-  }
-  return self;
+  CAGradientLayer *maskLayer = [CAGradientLayer layer];
+  maskLayer.anchorPoint = CGPointZero;
+  maskLayer.startPoint = CGPointMake(0.5f, 1.0f);
+  maskLayer.endPoint = CGPointMake(0.5f, 0.0f);
+  UIColor *outerColor = [UIColor colorWithWhite:1.0 alpha:1.0];
+  UIColor *innerColor = [UIColor colorWithWhite:1.0 alpha:0.5];
+  maskLayer.colors = @[(id)innerColor.CGColor, (id)outerColor.CGColor, (id)innerColor.CGColor, (id)outerColor.CGColor, (id)outerColor.CGColor];
+  maskLayer.locations = @[@0.0, @0.15, @0.5, @0.85, @1.0f];
+  maskLayer.bounds = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
+  self.coverImageView.layer.mask = maskLayer;
 }
 
 - (FBShimmeringView *)shimmeringView
@@ -43,9 +48,9 @@
 
 - (void)configureWithOnline:(Online *)online
 {
-  [self.titleLabel setTextColor:[UIColor whiteColor]];
-  [self.titleLabel setFont:[UIFont systemFontOfSize:16]];
-  [self.timeLabel setTextColor:[UIColor whiteColor]];
+  [self.titleLabel setTextColor:[UIColor blackColor]];
+  [self.titleLabel setFont:[UIFont systemFontOfSize:17]];
+  [self.timeLabel setTextColor:[UIColor blackColor]];
   [self.timeLabel setFont:[UIFont systemFontOfSize:12]];
   
   CGRect frame = self.coverImageView.frame;
