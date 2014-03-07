@@ -18,6 +18,8 @@
 		C70BA2A218BB39E9008265F6 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = C70BA2A118BB39E9008265F6 /* MenuView.m */; };
 		C70E171D18C999EB00C98FF5 /* MHFacebookImageViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = C70E171C18C999EB00C98FF5 /* MHFacebookImageViewer.m */; };
 		C70E171F18C99CC500C98FF5 /* black_bg.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C70E171E18C99CC500C98FF5 /* black_bg.jpeg */; };
+		C70E172118C9A68C00C98FF5 /* Done.png in Resources */ = {isa = PBXBuildFile; fileRef = C70E172018C9A68C00C98FF5 /* Done.png */; };
+		C70E172318C9AAE800C98FF5 /* chat.png in Resources */ = {isa = PBXBuildFile; fileRef = C70E172218C9AAE800C98FF5 /* chat.png */; };
 		C716E45C18BDCD3B0004BFBF /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = C716E45B18BDCD3B0004BFBF /* background.png */; };
 		C716E45F18BDD5ED0004BFBF /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = C716E45E18BDD5ED0004BFBF /* UIImage+Resize.m */; };
 		C716E46618BDD6CB0004BFBF /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C716E46518BDD6CB0004BFBF /* ImageHelper.m */; };
@@ -92,6 +94,8 @@
 		C70E171B18C999EB00C98FF5 /* MHFacebookImageViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MHFacebookImageViewer.h; path = Source/lib/MHFacebookImageViewer.h; sourceTree = "<group>"; };
 		C70E171C18C999EB00C98FF5 /* MHFacebookImageViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MHFacebookImageViewer.m; path = Source/lib/MHFacebookImageViewer.m; sourceTree = "<group>"; };
 		C70E171E18C99CC500C98FF5 /* black_bg.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = black_bg.jpeg; path = Resource/images/black_bg.jpeg; sourceTree = "<group>"; };
+		C70E172018C9A68C00C98FF5 /* Done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Done.png; path = Resource/images/Done.png; sourceTree = "<group>"; };
+		C70E172218C9AAE800C98FF5 /* chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chat.png; path = Resource/images/chat.png; sourceTree = "<group>"; };
 		C716E45B18BDCD3B0004BFBF /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = Resource/images/background.png; sourceTree = "<group>"; };
 		C716E45D18BDD5ED0004BFBF /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "Source/View/Category/UIImage+Resize.h"; sourceTree = "<group>"; };
 		C716E45E18BDD5ED0004BFBF /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "Source/View/Category/UIImage+Resize.m"; sourceTree = "<group>"; };
@@ -198,6 +202,8 @@
 		C70BA28918BB287B008265F6 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				C70E172218C9AAE800C98FF5 /* chat.png */,
+				C70E172018C9A68C00C98FF5 /* Done.png */,
 				C70E171E18C99CC500C98FF5 /* black_bg.jpeg */,
 				C716E46718BDD7690004BFBF /* ic_avatar.png */,
 				C716E45B18BDCD3B0004BFBF /* background.png */,
@@ -556,12 +562,14 @@
 				C72765B018C4893C00994F96 /* LoginView.xib in Resources */,
 				C70BA29018BB2889008265F6 /* likes-32.png in Resources */,
 				C716E47A18BE07170004BFBF /* OnlineDetailHeaderView.xib in Resources */,
+				C70E172318C9AAE800C98FF5 /* chat.png in Resources */,
 				C716E45C18BDCD3B0004BFBF /* background.png in Resources */,
 				C716E46818BDD7690004BFBF /* ic_avatar.png in Resources */,
 				C79CF33718B5CE1900DAAA0F /* InfoPlist.strings in Resources */,
 				C70BA28F18BB2889008265F6 /* checked_user-32.png in Resources */,
 				C70BA29318BB2889008265F6 /* week_view-32.png in Resources */,
 				C79CF33F18B5CE1900DAAA0F /* Images.xcassets in Resources */,
+				C70E172118C9A68C00C98FF5 /* Done.png in Resources */,
 				C70BA29218BB2889008265F6 /* today-32.png in Resources */,
 				C70E171F18C99CC500C98FF5 /* black_bg.jpeg in Resources */,
 				C70BA29118BB2889008265F6 /* menu-32.png in Resources */,
