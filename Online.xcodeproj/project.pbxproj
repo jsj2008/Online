@@ -20,6 +20,7 @@
 		C70E171F18C99CC500C98FF5 /* black_bg.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C70E171E18C99CC500C98FF5 /* black_bg.jpeg */; };
 		C70E172118C9A68C00C98FF5 /* Done.png in Resources */ = {isa = PBXBuildFile; fileRef = C70E172018C9A68C00C98FF5 /* Done.png */; };
 		C70E172318C9AAE800C98FF5 /* chat.png in Resources */ = {isa = PBXBuildFile; fileRef = C70E172218C9AAE800C98FF5 /* chat.png */; };
+		C70E172518C9B2A800C98FF5 /* ic_tool_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C70E172418C9B2A800C98FF5 /* ic_tool_back@2x.png */; };
 		C716E45C18BDCD3B0004BFBF /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = C716E45B18BDCD3B0004BFBF /* background.png */; };
 		C716E45F18BDD5ED0004BFBF /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = C716E45E18BDD5ED0004BFBF /* UIImage+Resize.m */; };
 		C716E46618BDD6CB0004BFBF /* ImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C716E46518BDD6CB0004BFBF /* ImageHelper.m */; };
@@ -96,6 +97,7 @@
 		C70E171E18C99CC500C98FF5 /* black_bg.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = black_bg.jpeg; path = Resource/images/black_bg.jpeg; sourceTree = "<group>"; };
 		C70E172018C9A68C00C98FF5 /* Done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Done.png; path = Resource/images/Done.png; sourceTree = "<group>"; };
 		C70E172218C9AAE800C98FF5 /* chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chat.png; path = Resource/images/chat.png; sourceTree = "<group>"; };
+		C70E172418C9B2A800C98FF5 /* ic_tool_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ic_tool_back@2x.png"; path = "Resource/images/ic_tool_back@2x.png"; sourceTree = "<group>"; };
 		C716E45B18BDCD3B0004BFBF /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = Resource/images/background.png; sourceTree = "<group>"; };
 		C716E45D18BDD5ED0004BFBF /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Resize.h"; path = "Source/View/Category/UIImage+Resize.h"; sourceTree = "<group>"; };
 		C716E45E18BDD5ED0004BFBF /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Resize.m"; path = "Source/View/Category/UIImage+Resize.m"; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 		C70BA28918BB287B008265F6 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				C70E172418C9B2A800C98FF5 /* ic_tool_back@2x.png */,
 				C70E172218C9AAE800C98FF5 /* chat.png */,
 				C70E172018C9A68C00C98FF5 /* Done.png */,
 				C70E171E18C99CC500C98FF5 /* black_bg.jpeg */,
@@ -571,6 +574,7 @@
 				C79CF33F18B5CE1900DAAA0F /* Images.xcassets in Resources */,
 				C70E172118C9A68C00C98FF5 /* Done.png in Resources */,
 				C70BA29218BB2889008265F6 /* today-32.png in Resources */,
+				C70E172518C9B2A800C98FF5 /* ic_tool_back@2x.png in Resources */,
 				C70E171F18C99CC500C98FF5 /* black_bg.jpeg in Resources */,
 				C70BA29118BB2889008265F6 /* menu-32.png in Resources */,
 			);

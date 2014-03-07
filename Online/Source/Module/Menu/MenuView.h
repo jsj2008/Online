@@ -25,5 +25,6 @@ typedef NS_ENUM (NSInteger, MenuType) {
 
 @property (nonatomic, weak) id<MenuViewDelegate> delegate;
 - (void)configureWithMenuType:(MenuType)menuType;
+- (void)configureWithTitle:(NSString *)title imageName:(NSString *)imageName;
 
 @end

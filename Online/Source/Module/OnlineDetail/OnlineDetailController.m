@@ -37,9 +37,15 @@
   self.tableView.dataSource = self;
   self.tableView.delegate = self;
   self.tableView.tableHeaderView = self.headerView;
-    
+  
+  [self initMenuViewRelated];
   [self initRefreshControlRelated];
   [self sendPhotosRequest];
+}
+
+- (void)initMenuViewRelated
+{
+  [self.menuView configureWithTitle:self.online.title imageName:@"ic_tool_back"];
 }
 
 - (void)initRefreshControlRelated

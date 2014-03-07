@@ -34,15 +34,17 @@
     [self setBackgroundColor:MENU_BGCOLOR];
     self.titleLabel = [[UILabel alloc] init];
     [self.titleLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
     [self addSubview:self.titleLabel];
     
     self.imageView = [[UIImageView alloc] init];
     [self.imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self addSubview:self.imageView];
     
+    [self.imageView alignTop:@"5" leading:@"10" toView:self];
     [self.titleLabel alignCenterXWithView:self predicate:nil];
     [self.titleLabel alignCenterYWithView:self predicate:nil];
-    [self.imageView alignTop:@"5" leading:@"10" toView:self];
+    [self.titleLabel constrainWidthToView:self predicate:@"*.6"];
     
     UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                  action:@selector(titlePressed)];
