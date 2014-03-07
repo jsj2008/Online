@@ -18,6 +18,8 @@ typedef NS_ENUM (NSInteger, MenuType) {
 @protocol MenuViewDelegate <NSObject>
 
 - (void)presentMenuViewController;
+@optional
+- (void)backToParent;
 
 @end
 
@@ -26,5 +28,7 @@ typedef NS_ENUM (NSInteger, MenuType) {
 @property (nonatomic, weak) id<MenuViewDelegate> delegate;
 - (void)configureWithMenuType:(MenuType)menuType;
 - (void)configureWithTitle:(NSString *)title imageName:(NSString *)imageName;
+- (void)removeTapGestureRecognizer;
+- (void)addTapGestureRecognizer;
 
 @end

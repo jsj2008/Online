@@ -14,11 +14,12 @@
 @interface MenuView ()
 
 @property (nonatomic, strong) UILabel *titleLabel;
-@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UIButton *imageButton;
 @property (nonatomic, assign) BOOL didSetupConstraints;
 
 @property (nonatomic, strong) NSArray *titleArray;
 @property (nonatomic, strong) NSArray *imageArray;
+@property (nonatomic, strong) UITapGestureRecognizer *tapRecognizer;
 
 @end
 
@@ -37,18 +38,21 @@
     [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
     [self addSubview:self.titleLabel];
     
-    self.imageView = [[UIImageView alloc] init];
-    [self.imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
-    [self addSubview:self.imageView];
+    self.imageButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.imageButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self addSubview:self.imageButton];
+    [self.imageButton addTarget:self
+                       action:@selector(backToParent)
+             forControlEvents:UIControlEventTouchUpInside];
     
-    [self.imageView alignTop:@"5" leading:@"10" toView:self];
+    [self.imageButton alignTop:@"5" leading:@"10" toView:self];
     [self.titleLabel alignCenterXWithView:self predicate:nil];
     [self.titleLabel alignCenterYWithView:self predicate:nil];
     [self.titleLabel constrainWidthToView:self predicate:@"*.6"];
     
-    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                 action:@selector(titlePressed)];
-    [self addGestureRecognizer:recognizer];
+    self.tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                 action:@selector(titlePressed)];
+    [self addGestureRecognizer:self.tapRecognizer];
   }
   return self;
 }
@@ -56,7 +60,7 @@
 - (void)configureWithTitle:(NSString *)title imageName:(NSString *)imageName
 {
   [self.titleLabel setText:title];
-  [self.imageView setImage:[UIImage imageNamed:imageName]];
+  [self.imageButton setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
 }
 
 - (NSArray *)titleArray
@@ -87,6 +91,21 @@
 - (void)titlePressed
 {
   [self.delegate presentMenuViewController];
+}
+
+- (void)backToParent
+{
+  [self.delegate backToParent];
+}
+
+- (void)removeTapGestureRecognizer
+{
+  [self removeGestureRecognizer:self.tapRecognizer];
+}
+
+- (void)addTapGestureRecognizer
+{
+  [self addGestureRecognizer:self.tapRecognizer];
 }
 
 @end

@@ -81,8 +81,10 @@
 //implemented by subclass
 - (void)selectMenuType:(MenuType)menuType
 {
-  
 }
+
+- (void)backToParent
+{}
 
 - (void)viewDidLoad
 {

@@ -46,6 +46,7 @@
 - (void)initMenuViewRelated
 {
   [self.menuView configureWithTitle:self.online.title imageName:@"ic_tool_back"];
+  [self.menuView removeTapGestureRecognizer];
 }
 
 - (void)initRefreshControlRelated
@@ -130,6 +131,11 @@
 
 - (UIImage*) imageDefaultAtIndex:(NSInteger)index imageViewer:(MHFacebookImageViewer *)imageViewer{
   return [UIImage imageNamed:@"black_bg"];
+}
+
+- (void)backToParent
+{
+  [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

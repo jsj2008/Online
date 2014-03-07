@@ -16,9 +16,7 @@
   self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
   if (self) {
     self.menuView = [[MenuView alloc] initWithFrame:self.contentView.frame];
-    for (UIGestureRecognizer *recognizer in self.menuView.gestureRecognizers) {
-      [self.menuView removeGestureRecognizer:recognizer];
-    }
+    [self.menuView removeTapGestureRecognizer];
     [self.contentView addSubview:self.menuView];
     
     UIView *bgColorView = [[UIView alloc] init];
