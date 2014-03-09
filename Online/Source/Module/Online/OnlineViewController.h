@@ -11,5 +11,6 @@
 @interface OnlineViewController : BaseViewController
 <UICollectionViewDataSource, UICollectionViewDelegate>
 
+- (id)initWithCate:(NSString *)cate;
 
 @end

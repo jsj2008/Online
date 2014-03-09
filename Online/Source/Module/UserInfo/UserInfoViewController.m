@@ -10,6 +10,7 @@
 #import "OnlineAccount.h"
 #import "ImageHelper.h"
 #import "DOUAccountManager.h"
+#import "LoginViewController.h"
 
 @implementation UserInfoViewController
 

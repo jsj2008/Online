@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 douban. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "BaseViewController.h"
 
-@interface UserInfoViewController : UIViewController
+@interface UserInfoViewController : BaseViewController
 
 @property (nonatomic, strong) IBOutlet UIImageView *avatarView;
 @property (nonatomic, strong) IBOutlet UILabel *nameLabel;

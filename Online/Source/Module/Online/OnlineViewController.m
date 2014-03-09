@@ -16,6 +16,7 @@
 #import "UltraCollectionViewLayout.h"
 #import "LoginViewController.h"
 #import "OnlineAccount.h"
+#import "UserInfoViewController.h"
 
 #define CELL_IDENTIFIER        @"CollectionCell"
 #define ONLINE_FOOTER_IDENTIFIER  @"OnlineFooter"
@@ -30,10 +31,21 @@
 
 @implementation OnlineViewController
 
+- (id)initWithCate:(NSString *)cate
+{
+  self = [super init];
+  if (self) {
+    self.currentCate = cate;
+  }
+  return self;
+}
+
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  self.currentCate = @"day";
+  if (!self.currentCate) {
+    self.currentCate = @"day";
+  }
   [self.bodyView addSubview:self.collectionView];
   self.dataArray = [NSMutableArray array];
   [self sendOnlineRequestWithCate:self.currentCate loadMore:NO];
@@ -141,11 +153,14 @@
       break;
     case kProfile:
     {
+      [self.navigationController popViewControllerAnimated:YES];
       if (![OnlineAccount isLogin]) {
         LoginViewController *controller = [[LoginViewController alloc] initWithNibName:@"LoginView" bundle:nil];
         [self.navigationController pushViewController:controller animated:YES];
       } else {
-        
+        UserInfoViewController *controller = [[UserInfoViewController alloc]
+                                              initWithNibName:@"UserInfoView" bundle:nil];
+        [self.navigationController pushViewController:controller animated:YES];
       }
     }
       break;
@@ -158,8 +173,6 @@
   }
   [self changeMenuViewType:menuType];
 }
-
-
 
 /*
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
