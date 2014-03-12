@@ -52,6 +52,19 @@
   [self initRefreshControlRelated];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+  NSInteger menuType = 0;
+  if ([self.currentCate isEqualToString:@"day"]) {
+    menuType = kTodayHotOnline;
+  } else if ([self.currentCate isEqualToString:@"latest"]) {
+    menuType = kLatestOnline;
+  } else if ([self.currentCate isEqualToString:@"week"]) {
+    menuType = kWeekHotOnline;
+  }
+  [self.menuView configureWithMenuType:menuType];
+}
+
 - (UICollectionView *)collectionView
 {
   if (!_collectionView) {

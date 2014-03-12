@@ -29,7 +29,7 @@
   if (self) {
     [self setBackgroundColor:[UIColor clearColor]];
     
-    self.mainView = [[UIView alloc] init];
+    self.mainView = [[UIView alloc] initWithFrame:frame];
     [self.mainView setTranslatesAutoresizingMaskIntoConstraints:NO];
     [self.contentView addSubview:self.mainView];
     
@@ -52,6 +52,7 @@
     bgColorView.layer.cornerRadius = 7;
     bgColorView.layer.masksToBounds = YES;
     [self setSelectedBackgroundView:bgColorView];
+    [self updateConstraints];
   }
   return self;
 }

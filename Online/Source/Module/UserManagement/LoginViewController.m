@@ -32,6 +32,8 @@
 {
   [super viewDidLoad];
   [self loadSubViews];
+  [self.menuView configureWithTitle:@"线上活动" imageName:@"ic_tool_back"];
+  [self.menuView removeTapGestureRecognizer];
 }
 
 - (void)loadSubViews
@@ -176,6 +178,11 @@
 {
   _oauthInfo = auth;
   [self loginFinished];
+}
+
+- (void)backToParent
+{
+  [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

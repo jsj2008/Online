@@ -17,13 +17,18 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  [self.bodyView removeFromSuperview];
   [self configureUserInfo];
+  [self.menuView configureWithTitle:@"线上活动" imageName:@"ic_tool_back"];
+  [self.menuView removeTapGestureRecognizer];
 }
 
 - (IBAction)logout:(id)sender
 {
+  NSLog(@"haha");
   OnlineAccount *account = [OnlineAccount currentAccount];
   [[DOUAccountManager sharedInstance] deleteAccount:account];
+  [self backToParent];
 }
 
 - (void)configureUserInfo
@@ -33,6 +38,12 @@
                         withImageURL:account.user.largeAvatar
                     destionationSize:self.avatarView.frame.size];
   [self.nameLabel setText:account.user.name];
+}
+
+
+- (void)backToParent
+{
+  [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
