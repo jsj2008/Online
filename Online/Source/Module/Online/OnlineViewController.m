@@ -17,6 +17,7 @@
 #import "LoginViewController.h"
 #import "OnlineAccount.h"
 #import "UserInfoViewController.h"
+#import "TLSpringFlowLayout.h"
 
 #define CELL_IDENTIFIER        @"CollectionCell"
 #define ONLINE_FOOTER_IDENTIFIER  @"OnlineFooter"
@@ -68,15 +69,17 @@
 - (UICollectionView *)collectionView
 {
   if (!_collectionView) {
-    UltraCollectionViewLayout *layout = [[UltraCollectionViewLayout alloc] init];
-    layout.expandItemHeight = kOnlineCellHeight;
-    layout.shrinkItemHeight = kOnlineCellShrinkHeight;
+    TLSpringFlowLayout *layout = [[TLSpringFlowLayout alloc] init];
+    layout.itemSize = CGSizeMake(self.view.frame.size.width, kOnlineCellHeight);
+    
+    //layout.expandItemHeight = kOnlineCellHeight;
+    //layout.shrinkItemHeight = kOnlineCellShrinkHeight;
     
     _collectionView = [[UICollectionView alloc] initWithFrame:self.bodyView.bounds collectionViewLayout:layout];
     _collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     _collectionView.dataSource = self;
     _collectionView.delegate = self;
-    _collectionView.backgroundColor = [UIColor colorWithWhite:0.5 alpha:1.0];
+    _collectionView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1.0];
     [_collectionView registerClass:[OnlineCell class]
         forCellWithReuseIdentifier:CELL_IDENTIFIER];
     [_collectionView registerClass:[UICollectionReusableView class]

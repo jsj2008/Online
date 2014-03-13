@@ -63,7 +63,9 @@
   
   CGImageRef cgImage = [context createCGImage:result fromRect:[inputImage extent]];
   
-  return [UIImage imageWithCGImage:cgImage];
+  UIImage *image = [UIImage imageWithCGImage:cgImage];
+  CGImageRelease(cgImage);
+  return image;
 }
 
 - (UIImage *)fixedHeightScaleAndClipToFillSize:(CGSize)destSize
