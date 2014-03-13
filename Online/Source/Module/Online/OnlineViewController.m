@@ -190,25 +190,4 @@
   [self changeMenuViewType:menuType];
 }
 
-/*
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-  CGPoint point = scrollView.contentOffset;
-  UltraCollectionViewLayout *layout = (UltraCollectionViewLayout *)self.collectionView.collectionViewLayout;
-  CGPoint anotherPoint = CGPointMake(point.x, point.y + kOnlineCellHeight - kOnlineCellShrinkHeight + 50);
-  NSIndexPath *path = [self.collectionView indexPathForItemAtPoint:anotherPoint];
-  if (point.y <= layout.shrinkItemHeight) {
-    path = [NSIndexPath indexPathForRow:0 inSection:0];
-  }
-  
-  [self.collectionView performBatchUpdates:^{
-    [layout setShowingIndex:path.item];
-  } completion:nil];
-  
-  [self.collectionView scrollToItemAtIndexPath:path
-                              atScrollPosition:UICollectionViewScrollPositionLeft
-                                      animated:NO];
-}
-*/
-
 @end

@@ -10,10 +10,16 @@
 #import "AppConstant.h"
 #import "UIView+YAUIKit.h"
 #import "YAPanBackController.h"
+#import "CECubeAnimationController.h"
+#import "CEPortalAnimationController.h"
+#import "CEExplodeAnimationController.h"
 
-@interface BaseViewController ()
+
+@interface BaseViewController () <UINavigationControllerDelegate, UIViewControllerTransitioningDelegate>
 
 @property (nonatomic, strong) YAPanBackController *panBackController;
+@property (nonatomic, strong) CEPortalAnimationController *portalAnimationController;
+@property (nonatomic, strong) CEExplodeAnimationController *explodeAnimationController;
 
 @end
 
@@ -49,6 +55,22 @@
   return _menuView;
 }
 
+- (CEPortalAnimationController *)portalAnimationController
+{
+  if (!_portalAnimationController) {
+    _portalAnimationController = [[CEPortalAnimationController alloc] init];
+  }
+  return _portalAnimationController;
+}
+
+- (CEExplodeAnimationController *)explodeAnimationController
+{
+  if (!_explodeAnimationController) {
+    _explodeAnimationController = [[CEExplodeAnimationController alloc] init];
+  }
+  return _explodeAnimationController;
+}
+
 - (void)changeMenuViewType:(MenuType)type
 {
   [_menuView configureWithMenuType:type];
@@ -58,23 +80,18 @@
 {
   MenuViewController *controller = [[MenuViewController alloc] init];
   controller.delegate = self;
+  controller.transitioningDelegate = self;
   [self presentViewController:controller animated:YES completion:NULL];
-  /*
-  [self presentViewController:controller animated:YES completion:^{
-    CAKeyframeAnimation *animation=[CAKeyframeAnimation animationWithKeyPath:@"position"];
-    CGFloat middleX = ceilf(self.view.frame.size.width / 2);
-    CGFloat middleY = ceilf(self.view.frame.size.height / 2);
-    NSArray *values = [NSArray arrayWithObjects:
-                       [NSValue valueWithCGPoint:CGPointMake(middleX, middleY)],
-                       [NSValue valueWithCGPoint:CGPointMake(middleX, middleY - 10)],
-                       nil];
-    [animation setValues:values];
-    [animation setDuration:0.2];
-    [animation setAutoreverses:YES];
+}
 
-    [controller.view.layer addAnimation:animation forKey:nil];
-  }];
-   */
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
+  
+  return self.portalAnimationController;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+  return self.explodeAnimationController;
 }
 
 //TODO: move it away
@@ -84,7 +101,8 @@
 }
 
 - (void)backToParent
-{}
+{
+}
 
 - (void)viewDidLoad
 {
