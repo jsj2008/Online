@@ -12,14 +12,11 @@
 #import "YAPanBackController.h"
 #import "CECubeAnimationController.h"
 #import "CEPortalAnimationController.h"
-#import "CEExplodeAnimationController.h"
-
 
 @interface BaseViewController () <UINavigationControllerDelegate, UIViewControllerTransitioningDelegate>
 
 @property (nonatomic, strong) YAPanBackController *panBackController;
 @property (nonatomic, strong) CEPortalAnimationController *portalAnimationController;
-@property (nonatomic, strong) CEExplodeAnimationController *explodeAnimationController;
 
 @end
 
@@ -59,16 +56,9 @@
 {
   if (!_portalAnimationController) {
     _portalAnimationController = [[CEPortalAnimationController alloc] init];
+    _portalAnimationController.duration = 0.3f;
   }
   return _portalAnimationController;
-}
-
-- (CEExplodeAnimationController *)explodeAnimationController
-{
-  if (!_explodeAnimationController) {
-    _explodeAnimationController = [[CEExplodeAnimationController alloc] init];
-  }
-  return _explodeAnimationController;
 }
 
 - (void)changeMenuViewType:(MenuType)type
@@ -87,11 +77,6 @@
 - (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
   
   return self.portalAnimationController;
-}
-
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
-{
-  return self.explodeAnimationController;
 }
 
 //TODO: move it away
