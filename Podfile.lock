@@ -32,17 +32,17 @@ DEPENDENCIES:
   - YAUIKit (~> 1.0.2)
 
 SPEC CHECKSUMS:
-  AFNetworking: 61fdd49e2ffe6380378df37b3b6e70630bb9dd66
+  AFNetworking: 5f5b2a731d6fc2082b8abc63d40fcaed5482c42f
   DoubanObjCClient: e0fafa221ff74c2ccd4fc66b8367077cc069554f
   DOUFoundation: 080b43ad5c45afcb1b0bfc81511b5ecf37c3ad38
   DOUUserManager: ad47e5c830f369e3a1ec0e2a910b7587b8649b4e
-  FLKAutoLayout: fc04b932009174d4118ef4bda9dc8fedf1369efc
-  iToast: 610c7ae1a7de124186ff99db27622af534151a1b
-  JSONModel: a5f2eb85c46df008a67569447ec408d1040d4bf4
-  MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
-  SDWebImage: 1a62010700adbba823b621fc217906739dbf6aa5
-  Shimmer: a1b92685f04ae7363e655f636a41a276dbb1507e
-  VCTransitionsLibrary: 328859e78311d45cf393a69a879417133a68c309
+  FLKAutoLayout: 9fa39aac2903b274fbeed6be74154cdb937a04fc
+  iToast: 4de112d3dd42a3a8bf685572e6cda723c9cbc4f2
+  JSONModel: f7386a54bd7ab6f28f8019dce570cc787fdf7f96
+  MBProgressHUD: c356980b0cd097f19acec959b49dca5eb8ec31be
+  SDWebImage: 571295c8acbb699505a0f68e54506147c3de9ea7
+  Shimmer: 35aa2a57b8fbc17f9e16706021665966fd93dbd1
+  VCTransitionsLibrary: 0624c9163552cf5ded57f80f6285e20fa2863607
   YAUIKit: 8d8ca5724e62c73002a6119d9581ec027bebab52
 
-COCOAPODS: 0.29.0
+COCOAPODS: 0.33.1
